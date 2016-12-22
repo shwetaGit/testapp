@@ -1,0 +1,55 @@
+<div class="row"  style="background-color: #607d8b;height: 100vh;overflow: hidden">
+<div class="row" style="height: 10vh">
+</div>
+<div class="row animated fadeInUp"><!--[attr.class]="loginStyle"-->
+    <div class="col-lg-4 col-xs-2"></div>
+    <div class="col-lg-3 col-xs-8" >
+        <!--Card-->
+        <div class="card">
+            <br>
+                <center>
+               <img src="images/logo.png"  style="border-radius: 50%;height: 100px;width: 100px">
+                </center>
+           <!-- <img  style="height: 100px;width: 100px" class="img-circle" src="images/logo.png">-->
+
+
+            <div class="card-block">
+
+                <form (ngSubmit)="authenticteUser()" #lofinForm="ngForm">
+                    <div class="row">
+                        <div class="col-lg-12 col-xs-12">
+                            <div class="md-form">
+                                <input type="text" id="userId" class="form-control validate"  autocomplete="off" [(ngModel)]="logincredentials.loginId" name="loginId" required><!--[(ngModel)]="logincredentials.loginId" name="loginId"-->
+                                <label for="userId" class="">Email</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-xs-12">
+                            <div class="md-form">
+                                <input type="password" id="pass" class="form-control validate"  autocomplete="off" [(ngModel)]="logincredentials.password" name="password" required><!--[(ngModel)]="logincredentials.password" name="password"-->
+                                <label for="pass" class="">Password</label>
+                            </div>
+                        </div>
+                    </div><br>
+                    <center><p id="errorMsg" style="display: none"><font color="red">Invalid Credentials... try again</font></p></center><!--"-->
+                    <button class="btn btn-lg btn-primary btn-block btn-signin waves-effect"  type="submit" >Sign In</button>
+                </form>
+
+
+                <br>
+                <div class="progress" id="progressBar" style="display: none">
+                    <div class="indeterminate" style="width: 70%"></div>
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+    <div class="col-lg-4 col-xs-2"></div>
+</div>
+</div>

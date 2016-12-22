@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AppConfig>
+
+<!-- WARNING: 
+ 	 	 BASE FILE PATH FOR THE APPLIFIRE APP SHOULD BE USED ONLY IF THE ABSOLUTE PATH 
+ 	 	 CANNOT BE AUTOMATICALLY DERIVED -->
+	 <pathConfig os="linux">
+	 	 <baseFilePath><![CDATA[/home/applifire]]></baseFilePath>
+	 	 <webAppPath><![CDATA[/Softwares/tomcat/webapps/apptestone]]></webAppPath>
+	 </pathConfig>
+	<authenticationConfig>
+	 	 <!-- Plugin type 0 = internal authentication like database or active directory will be used.
+	 	 Plugin type 1 = external authentication mechanism will be used. -->
+	 	 <authPlugin type="0">	 <!-- authentication type 1 = database authentication . authentication type 2 = active directory authentication. REQUIRED FOR Plugin TYPE = 0 ONLY -->
+	 	 	 <authType>1</authType>
+	 	 	 <!--User defined class to be loaded for authentication . REQUIRED FOR Plugin TYPE = 1 ONLY -->
+	 	 	 <authClassName>com.x.y.MyCustomAuthentication</authClassName>
+	 	 	 <authProperties>
+	 	 	 </authProperties>
+	 	 </authPlugin>
+	 	 <recaptcha>false</recaptcha>
+	</authenticationConfig>
+
+	 <databaseConfig>
+	 	 <connectionConfig>
+	 	 	 <driverName>com.mysql.jdbc.Driver</driverName>
+	 	 	 <protocol>jdbc:mysql://</protocol>
+	 	 	 <host>localhost-MYSQL</host>
+	 	 	 <port>3306</port>
+	 	 	 <database>apptestone</database>
+	 	 	 <optionalParams>
+	 	 	 	 <![CDATA[?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull]]>
+	 	 	 </optionalParams>
+	 	 	 <userName>apptestone</userName>
+	 	 	 <password>H4sIAAAAAAAAAEssKChJLS7Jz0sFAJvNQB4KAAAA</password>
+	 	 </connectionConfig>
+	 	 <connectionPooling>
+	 	 	 <initialSize>1</initialSize>
+	 	 	 <maxActive>1</maxActive>
+	 	 	 <minActive>1</minActive>
+	 	 	 <maxIdle>1</maxIdle>
+	 	 	 <minIdle>1</minIdle>
+	 	 	 <testOnBorrow>true</testOnBorrow>
+	 	 	 <testOnReturn>true</testOnReturn>
+	 	 	 <testWhileIdle>true</testWhileIdle>
+	 	 	 <validationQuery>SELECT 1;</validationQuery>
+	 	 	 <timeBetweenEvictionRunsMillis>1</timeBetweenEvictionRunsMillis>
+	 	 	 <numTestPerEvictionRun>1</numTestPerEvictionRun>
+	 	 </connectionPooling>
+	 <jpaProperties>
+	 	 	<property name="eclipselink.weaving" value="false"/>
+	 	 	<property name="eclipselink.dialect" value="org.eclipse.persistence.platform.database.MySQLPlatform"/>
+	 	 	<property name="eclipselink.session.customizer" value="com.app.config.UUIDGenerator"/>
+	 	 	<property name="eclipselink.allow-zero-id" value="true"/>
+	 	 	<property name="eclipselink.logging.level" value="SEVERE"/>
+	 	 	<property name="eclipselink.deploy-on-startup" value="true"/>
+	 	 	<property name="eclipselink.cache.shared.default" value="false"/>
+	 	 	<property name="eclipselink.connection-pool.default.initial" value="15"/>
+	 	 	<property name="eclipselink.connection-pool.default.min" value="6"/>
+	 	 	<property name="eclipselink.connection-pool.default.max" value="10"/>
+	 	 	<property name="eclipselink.jdbc.allow-native-sql-queries" value="true"/>
+	 	 	<property name="eclipselink.jdbc.batch-writing" value="JDBC"/>
+	 	 	<property name="eclipselink.jdbc.batch-writing.size" value="500"/>
+	 </jpaProperties>
+	 </databaseConfig>
+	 <!-- CUSTOMER FILE PROPERTIES USER OR CUSTOMER SPECIFIC DIRECTORY INFO OR FILE INFO ARE NOT ALLOWED
+	 	 1. Customer Properties will Start with Customer UUID inside the c folder
+	 	 2. Inside the Customer UUID Folder will be the folder u for users which contains users UUID
+	 	 3. All Code and BluePrint related folders / files will be stored under workspace folder.
+	 For Example 
+ 	 Customers = /AbsolutePath/c/c23d95cc-3cd4-4484-b262-3828446f79ec
+	 	 Users 	   = /../c/../u/e25e384e-ec88-40d8-8714-0d0b859ec086/
+	 	 	 = /../c../u/../tempData/
+	 	 	 = /../c../u/../sessionData/
+	 	 	 = /../c../u/../drivePrivate/
+	 	 	 = /../c../u/../drivePrivate/../reports  -->
+	 	 <searchEngineConfig>
+	 	 	 <docResultFields></docResultFields>
+	 	 	 <language></language>
+	 	 	 <searchAppURL>/</searchAppURL>
+	 	 	 <basePath></basePath>
+	 	 </searchEngineConfig>
+
+	 <!--Cloud Drive Properties : Search Engine will use the Public Drive and Private Drive
+	 Exclusively for the logged in user.
+	 In the RAD Customers = /AbsolutePath/c/c23d95cc-3cd4-4484-b262-3828446f79ec
+	 Users 	  = /../c/../u/e25e384e-ec88-40d8-8714-0d0b859ec086/
+	 Public	  = /../c/../drive/
+	 Private	  = /../c../u/../drivePrivate/	-->
+
+	 	 <!-- Email Configuration -->
+	 	 <mailConfig>
+	 	 	 <userName>testmail</userName>
+	 	 	 <password>H4sIAAAAAAAAACtJLS7JTczMAQB1aTBlCAAAAA==</password>
+	 	 	 <fromUser></fromUser>
+	 	 	 <smtpAuth>false</smtpAuth>
+	 	 	 <smtpHost>testmail</smtpHost>
+	 	 	 <smtpPort>465</smtpPort>
+	 	 	 <smtpsPort>25</smtpsPort>
+	 	 	 <smtpStarttlsEnable>false</smtpStarttlsEnable>
+	 	 	 <smtpSslEnable>false</smtpSslEnable>
+	 	 </mailConfig>
+
+	 	 <!-- Scheduler url -->
+	 	 <schedulerConfig>
+	 	 	 <schedulerurl>http://localhost:8080/apptestone/secure/</schedulerurl>
+	 	 	 <schedulerRefreshTime>300000</schedulerRefreshTime>
+	 	 </schedulerConfig>
+
+	 	 <!-- Integration Connectors  -->
+	 	 <JWTConfig>
+	 	 	 <algorithm>HS256</algorithm>
+	 	 	 <expiration>2017-12-22 11:31:53.0</expiration>
+	 	 	 <tokenkey>db33933c-f2a5-4ddf-92cc-1281bbcb3c8e</tokenkey>
+	 	 </JWTConfig>
+
+</AppConfig>

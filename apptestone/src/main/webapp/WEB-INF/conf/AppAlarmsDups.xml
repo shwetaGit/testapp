@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AppAlarms>
+	<!-- DONT EDIT THESE SYSTEM ALARMS  - START -->
+	<BoundedContext name="System" id="APS" system="yes">
+		<!-- Authentication Serice Scope for the App -->
+		<Domain name="AAA Service" id="AA" trace="no" criticality="3" connectorLogPriority="1,2,-1,-1">
+			<AppAlarm context="900" severity="2" connectorLogPriority="4,5,-1,-1">
+				<layer>1</layer>
+				<message>Authentication Request Succeeded: %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>200</status>
+				<eventAction>4</eventAction>
+			</AppAlarm>
+			<AppAlarm context="900" severity="5" connectorLogPriority="4,5,-1,-1">
+				<layer>1</layer>
+				<message>Authentication Request Failed: Access Denied %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>400</status>
+				<eventAction>4</eventAction>
+			</AppAlarm>
+			<AppAlarm context="900" severity="5" connectorLogPriority="4,5,-1,-1">
+				<layer>1</layer>
+				<message>Authentication Request Failed Duplicate: Access Denied %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>400</status>
+				<eventAction>4</eventAction>
+			</AppAlarm>
+		</Domain>
+		<Domain name="User Managment Service" id="UM" trace="no" criticality="3" connectorLogPriority="1,2,-1,-1">
+			<!-- User Management -->
+			<AppAlarm context="900" severity="2" connectorLogPriority="4,5,-1,-1">
+				<layer>3</layer>
+				<message>Add User Request Succeeded: %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>200</status>
+				<eventAction>2</eventAction>
+			</AppAlarm>
+			<AppAlarm context="900" severity="4" connectorLogPriority="4,5,-1,-1">
+				<layer>3</layer>
+				<message>Add User Request Data Validation Failed: Reason=%s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>400</status>
+				<eventAction>2</eventAction>
+			</AppAlarm>
+		</Domain>
+		<Domain name="Location Managment Service" id="LM" trace="no" criticality="3" connectorLogPriority="1,2,-1,-1">
+			<AppAlarm context="900" severity="2" connectorLogPriority="4,5,-1,-1">
+				<layer>3</layer>
+				<message>Add Location Request Succeeded: %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>200</status>
+				<eventAction>2</eventAction>
+			</AppAlarm>
+			<AppAlarm context="900" severity="4" connectorLogPriority="4,5,-1,-1">
+				<layer>3</layer>
+				<message>Add Location Request Data Validation Failed: Reason=%s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>400</status>
+				<eventAction>2</eventAction>
+			</AppAlarm>
+			<AppAlarm context="900" severity="4" connectorLogPriority="4,5,-1,-1">
+				<layer>3</layer>
+				<message>Add Location Request Data Validation Failed Duplicate: Reason=%s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>400</status>
+				<eventAction>2</eventAction>
+			</AppAlarm>
+			<AppAlarm context="900" severity="4" connectorLogPriority="4,5,-1,-1">
+				<layer>3</layer>
+				<message>Add Location Request Data Validation Failed Duplicate: Reason=%s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>400</status>
+				<eventAction>2</eventAction>
+			</AppAlarm>
+		</Domain>
+	</BoundedContext>
+	<!--
+		Data Visualizer 
+		Query Engine  :  Based on CQRS Pattern
+		Search Engine : Transparent Search across documents and databases
+		Cloud Drive   : Document Management similar to Google Drive
+	-->
+	<BoundedContext name="Data Visualizer" id="DVI" system="yes">
+		<Domain name="Query Engine" id="QE" trace="no" criticality="3" connectorLogPriority="1,2,-1,-1">
+			<AppAlarm context="900" severity="2" connectorLogPriority="4,2,-1,-1">
+				<layer>2</layer>
+				<message>Data Query Request Received: QueryID=%s | %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>100</status>
+				<eventAction>4</eventAction>
+			</AppAlarm>
+			<AppAlarm context="900" severity="3" connectorLogPriority="4,5,-1,-1">
+				<layer>2</layer>
+				<message>Data Query Request Completed: QueryID=%s | Time=%s | Rows=%s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>200</status>
+				<eventAction>4</eventAction>
+			</AppAlarm>
+		</Domain>
+		<Domain name="Cloud Drive" id="CD" trace="no" criticality="3" connectorLogPriority="1,2,-1,-1">
+			<!-- Folder Management -->
+			<AppAlarm context="900" severity="2" connectorLogPriority="4,2,-1,-1">
+				<layer>2</layer>
+				<message>Folder Create Request Received: Folder Name=%s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>100</status>
+				<eventAction>2</eventAction>
+			</AppAlarm>
+			<AppAlarm context="900" severity="2" connectorLogPriority="4,5,-1,-1">
+				<layer>2</layer>
+				<message>Folder Created Successfully: Folder Name=%s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>200</status>
+				<eventAction>2</eventAction>
+			</AppAlarm>
+		</Domain>
+	</BoundedContext>
+	<BoundedContext name="App Insight" id="AIS" system="yes">
+		<Domain name="Health Insight" id="HI" trace="no" criticality="3" connectorLogPriority="1,2,-1,-1">
+			<AppAlarm context="900" severity="3" connectorLogPriority="4,5,-1,-1">
+				<layer>2</layer>
+				<message>Disk space reached Threshold limit: Available Space=%s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>100</status>
+				<eventAction>4</eventAction>
+			</AppAlarm>
+		</Domain>
+	</BoundedContext>
+	<!-- 
+		THESE ALARMS WILL BE USED AS A TEMPLATE FOR VARIOUS APP LAYERS BASED
+		ON THE TEMPLATE, THE SYSTEM WILL AUTOMATICALLY GENERATES APP SPECIFIC 
+		ALARMS FOR VARIOUS BOUNDED CONTEXT AND DOMAINS
+	-->
+	<BoundedContext name="Alarm Templates" id="TPL" template="yes">
+		<!-- Web Service Template : REST / SOAP for the App -->
+		<Domain name="Web Service" id="WS" trace="no" criticality="3" connectorLogPriority="1,2,-1,-1">
+			<AppAlarm context="100" severity="1" connectorLogPriority="1,1,-1,-1">
+				<layer>1</layer>
+				<message>Web Service Call initiated : %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>100</status>
+				<eventAction>1</eventAction>
+			</AppAlarm>
+			<AppAlarm context="100" severity="1" connectorLogPriority="1,1,-1,-1">
+				<layer>1</layer>
+				<message>Web Service Call initiated : %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>100</status>
+				<eventAction>2</eventAction>
+			</AppAlarm>
+		</Domain>
+
+		<!-- Domain Service Template : Business Rules -->
+		<Domain name="Domain Service Template" id="DS" trace="no" criticality="3" connectorLogPriority="1,2,-1,-1">
+			<AppAlarm context="100" severity="1" connectorLogPriority="1,1,-1,-1">
+				<layer>2</layer>
+				<message>Domain Service Call initiated : %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>100</status>
+				<eventAction>7</eventAction>
+			</AppAlarm>
+			<AppAlarm context="100" severity="2" connectorLogPriority="4,1,-1,-1">
+				<layer>2</layer>
+				<message>Domain Service Call completed : %s Time Taken = %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>100</status>
+				<eventAction>7</eventAction>
+			</AppAlarm>
+			<AppAlarm context="100" severity="2" connectorLogPriority="4,1,-1,-1">
+				<layer>2</layer>
+				<message>Domain Service Call completed Duplicate: %s Time Taken = %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>100</status>
+				<eventAction>7</eventAction>
+			</AppAlarm>
+			<AppAlarm context="100" severity="2" connectorLogPriority="4,1,-1,-1">
+				<layer>2</layer>
+				<message>Domain Service Call completed Duplicate: %s Time Taken = %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>100</status>
+				<eventAction>7</eventAction>
+			</AppAlarm>
+			<AppAlarm context="100" severity="2" connectorLogPriority="4,1,-1,-1">
+				<layer>2</layer>
+				<message>Domain Service Call completed Duplicate: %s Time Taken = %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>100</status>
+				<eventAction>7</eventAction>
+			</AppAlarm>
+		</Domain>
+		<!-- Repository Service Template : RDBMS Database / BIG DATA / File Access -->
+		<Domain name="Repository Template" id="DB" trace="yes" criticality="3" connectorLogPriority="1,2,-1,-1">
+			<AppAlarm context="102" severity="5" connectorLogPriority="4,5,-1,-1">
+				<layer>3</layer>
+				<message>Repository Tx Exception: Entity Not Found! Reason=%s</message>
+				<diag>
+				Entity Not Found. Either Primary Key is invalid or the Entity Active Status is set as false (marked as deleted).
+				</diag>
+				<solution>Entity Not Found. Check if the Entity is marked as Deleted or the query condition to retrieve this entity. </solution>
+				<status>400</status>
+				<eventAction>5</eventAction>
+			</AppAlarm>
+			<AppAlarm context="103" severity="5" connectorLogPriority="4,5,-1,-1">
+				<layer>3</layer>
+				<message>Repository Tx Exception: Lock Timeout! Reason=%s</message>
+				<diag>
+				Thrown by the persistence provider when an pessimistic locking conflict occurs that does not result in transaction rollback. This exception may be thrown as part of an API call, at, flush or at commit time. The current transaction, if one is active, will be not be marked for rollback.
+				</diag>
+				<solution>
+				Please try after some time.
+				</solution>
+				<status>400</status>
+				<eventAction>5</eventAction>
+			</AppAlarm>
+			<AppAlarm context="104" severity="5" connectorLogPriority="4,5,-1,-1">
+				<layer>3</layer>
+				<message>Repository Tx Exception: Non Unique Result! Reason=%s</message>
+				<diag>
+				Thrown by the persistence provider when Query.getSingleResult() or TypedQuery.getSingleResult() is executed on a query and there is more than one result from the query. This exception will not cause the current transaction, if one is active, to be marked for rollback.
+				</diag>
+				<solution>
+				</solution>
+				<status>400</status>
+				<eventAction>5</eventAction>
+			</AppAlarm>
+		</Domain>
+		<!-- EXTERNAL SERVICE TEMPLATE : REST / SOAP / JDBC / File Access -->
+		<Domain name="External Service Template" id="ES" trace="no" criticality="3" connectorLogPriority="1,2,-1,-1">
+			<AppAlarm context="100" severity="1" connectorLogPriority="1,1,-1,-1">
+				<layer>4</layer>
+				<message>External Service Call initiated : %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>200</status>
+				<eventAction>1</eventAction>
+			</AppAlarm>
+			<AppAlarm context="100" severity="2" connectorLogPriority="4,1,-1,-1">
+				<layer>4</layer>
+				<message>External Service Call completed : %s Time Taken = %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>100</status>
+				<eventAction>4</eventAction>
+			</AppAlarm>
+		</Domain>
+	</BoundedContext>>
+	<!-- DONT EDIT THESE SYSTEM ALARMS - END -->
+
+	<!-- App Specific Alarms : Example -->
+	<BoundedContext name="Shopping Cart" id="SHP">
+		<Domain name="Product Catalogue" id="PR" trace="no" criticality="3" connectorLogPriority="1,2,-1,-1">
+		</Domain>
+        <Domain name="Product Catalogue" id="BA" trace="no" criticality="3" connectorLogPriority="1,2,-1,-1">
+        </Domain>
+    </BoundedContext>
+    <BoundedContext name="Shopping Cart" id="INV">
+        <Domain name="Product Catalogue" id="ST" trace="no" criticality="3" connectorLogPriority="1,2,-1,-1">
+        </Domain>
+        <Domain name="Product Catalogue" id="GD" trace="no" criticality="3" connectorLogPriority="1,2,-1,-1">
+        </Domain>
+    </BoundedContext>
+</AppAlarms>

@@ -1,0 +1,272 @@
+{
+  "data" : [{
+      "project"     : "Ext Forms: Field Anchoring",
+      "description" : "Integrate 2.0 Forms with 2.0 Layouts",
+      "estimate"    : "67",
+      "rate"        : "14",
+      "due"         : "06/24/2007"
+    },{
+      "project"     : "Ext Forms: Field Anchoring",
+      "description" : "Do Sumthing",
+      "estimate"    : "16",
+      "rate"        : "41",
+      "due"         : "05/14/2016"
+    },{
+    "project"     : "Ext Forms: Field Anchoring",
+    "description" : "Dont Do This",
+    "estimate"    : "64",
+    "rate"        : "71",
+    "due"         : "11/24/2014"
+    }
+    ,{
+      "project"     : "Ext Forms: Field Anchoring",
+      "description" : "Test Events",
+      "estimate"    : "89",
+      "rate"        : "96",
+      "due"         : "12/14/2007"
+    },{
+      "project"     : "Ext Forms: Field Anchoring",
+      "description" : "Add support for multiple types of anchors",
+      "estimate"    : "78",
+      "rate"        : "81",
+      "due"         : "06/24/2007"
+    },{
+      "project"     : "Ext Forms: Field Anchoring",
+      "description" : "Testing and debugging",
+      "estimate"    : "21",
+      "rate"        : "89",
+      "due"         : "06/24/2007"
+    },{
+      "project"     : "Ext Grid: Single-level Grouping",
+      "description" : "Required to Add Hooks",
+      "estimate"    : "12",
+      "rate"        : "78",
+      "due"         : "06/24/2007"
+    },
+    {
+      "project"     : "Ext Grid: Single-level Grouping",
+      "description" : "Extend Store with grouping functionality",
+      "estimate"    : "19",
+      "rate"        : "13",
+      "due"         : "9/04/2001"
+    },
+    {
+      "project"     : "Ext Grid: Single-level Grouping",
+      "description" : "Updates in editor grids",
+      "estimate"    : "17",
+      "rate"        : "51",
+      "due"         : "09/01/2002"
+    },
+    {
+      "project"     : "Ext Grid: Summary Rows",
+      "description" : "Integrate summarie",
+      "estimate"    : "17",
+      "rate"        : "59",
+      "due"         : "01/02/2007"
+    },
+    {
+      "project"     : "Ext Grid: Summary Rows",
+      "description" : "Dynamic summary updates",
+      "estimate"    : "10",
+      "rate"        : "17",
+      "due"         : "04/05/2009"
+    },
+    {
+      "project"     : "Ext Grid: Summary Rows",
+      "description" : "Remote summary integration",
+      "estimate"    : "17",
+      "rate"        : "15",
+      "due"         : "01/01/2006"
+    },
+
+
+    {
+      "project"     : "Ext Grid: Second-level Grouping",
+      "description" : "Required testing",
+      "estimate"    : "15",
+      "rate"        : "88",
+      "due"         : "06/4/2009"
+    },
+    {
+      "project"     : "Ext Grid: Second-level Grouping",
+      "description" : "testing not Required",
+      "estimate"    : "11",
+      "rate"        : "18",
+      "due"         : "11/12/2001"
+    },
+    {
+      "project"     : "Ext Grid: Second-level Grouping",
+      "description" : "Second level required testing",
+      "estimate"    : "77",
+      "rate"        : "45",
+      "due"         : "10/01/2002"
+    },
+    {
+      "project"     : "Ext Grid: Second-level Grouping",
+      "description" : "Second level required testing",
+      "estimate"    : "77",
+      "rate"        : "44",
+      "due"         : "7/11/2004"
+    },
+
+
+
+
+    {
+      "project"     : "Ext Grid: Event Handling",
+      "description" : "System generated event",
+      "estimate"    : "55",
+      "rate"        : "88",
+      "due"         : "5/8/2005"
+    },
+    {
+      "project"     : "Ext Grid: Event Handling",
+      "description" : "Dynamic generated event",
+      "estimate"    : "22",
+      "rate"        : "11",
+      "due"         : "2/1/2001"
+    },
+    {
+      "project"     : "Ext Grid: Event Handling",
+      "description" : "System generated event",
+      "estimate"    : "99",
+      "rate"        : "44",
+      "due"         : "9/4/2009"
+    },
+    {
+      "project"     : "Ext Grid: Event Handling",
+      "description" : "Default event",
+      "estimate"    : "33",
+      "rate"        : "77",
+      "due"         : "3/7/2003"
+    },
+
+
+    {
+      "project"     : "Ext Grid:Library management system",
+      "description" : "Availability of book ",
+      "estimate"    : "55",
+      "rate"        : "98",
+      "due"         : "5/4/2005"
+    },
+    {
+      "project"     : "Ext Grid:Library management system",
+      "description" : "School libraries",
+      "estimate"    : "22",
+      "rate"        : "67",
+      "due"         : "2/12/2001"
+    },
+    {
+      "project"     : "Ext Grid:Library management system",
+      "description" : "Academic libraries",
+      "estimate"    : "23",
+      "rate"        : "47",
+      "due"         : "9/4/2009"
+    },
+    {
+      "project"     : "Ext Grid:Library management system ",
+      "description" : "Special libraries",
+      "estimate"    : "33",
+      "rate"        : "77",
+      "due"         : "3/7/2003"
+    },
+
+
+    {
+      "project"     : "Ext Grid:Water management system",
+      "description" : "The World Bank's Strategy ",
+      "estimate"    : "12",
+      "rate"        : "58",
+      "due"         : "5/4/2005"
+    },
+    {
+      "project"     : "Ext Grid:Water management system",
+      "description" : "National Water Policy",
+      "estimate"    : "43",
+      "rate"        : "47",
+      "due"         : "2/12/2001"
+    },
+    {
+      "project"     : "Ext Grid:Water management system",
+      "description" : "Waste water",
+      "estimate"    : "92",
+      "rate"        : "87",
+      "due"         : "9/4/2009"
+    },
+    {
+      "project"     : "Ext Grid:Water management system",
+      "description" : "Water Cleaning",
+      "estimate"    : "73",
+      "rate"        : "27",
+      "due"         : "8/7/2003"
+    },
+
+
+    {
+      "project"     : "Ext Grid:field survey",
+      "description" : "required survey",
+      "estimate"    : "43",
+      "rate"        : "89",
+      "due"         : "9/4/2009"
+    },
+    {
+      "project"     : "Ext Grid:field survey",
+      "description" : "No need testing",
+      "estimate"    : "67",
+      "rate"        : "47",
+      "due"         : "2/2/2001"
+    },
+    {
+      "project"     : "Ext Grid:field survey",
+      "description" : "data collection",
+      "estimate"    : "23",
+      "rate"        : "67",
+      "due"         : "1/4/2009"
+    },
+    {
+      "project"     : "Ext Grid:field survey",
+      "description" : "Data Sorting",
+      "estimate"    : "76",
+      "rate"        : "27",
+      "due"         : "4/7/2003"
+    }
+  ],
+  "column" : [
+    {
+      "text" : "Project",
+      "dataIndex" : "project",
+      "hidden"    : "true"
+    },
+    {
+      "text" : "Estimate",
+      "dataIndex" : "estimate"
+    },
+    {
+      "text"  :  "Rate",
+      "dataIndex" : "rate"
+    },
+    {
+      "text" :  "Due",
+      "dataIndex" : "due"
+    }
+  ],
+  "summary" : [
+    {
+      "dataIndex" : "estimate",
+      "operation" : "min"
+    },
+    {
+      "dataIndex" : "rate",
+      "operation" : "min"
+    },
+    {
+      "dataIndex" : "due",
+      "operation" : "datemax"
+    }
+  ],
+
+  "groupbyKey" : "project",
+  "groupbyValue" : "description",
+  "groupLabel"    : "Project"
+
+}

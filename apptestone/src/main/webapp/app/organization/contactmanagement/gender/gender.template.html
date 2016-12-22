@@ -1,0 +1,27 @@
+<div class="container-fluid" id="Gender650">
+        <div class="card" id="Card963" style="background-color: #fefefe;" >
+    <div class="card-header primary-color white-text" >
+    Gender
+    </div>
+    <div class="card-block" >
+            <form id="Form116" >
+            <div class="row" id="Row188" style="background-color: #fefefe;" >
+            <text-input [(ngModel)]="genderModel.gender" name="genderModel.gender" [widgetConfig]="gender" [label]="'Gender'" [column]="'6'" ></text-input>
+    </div>
+            <div class="row" id="Row661" style="background-color: #fefefe;" >
+            <hidden-input [(ngModel)]="genderModel.genderId" name="genderModel.genderId" [column]="'6'" ></hidden-input>
+            <hidden-input [(ngModel)]="genderModel.versionId" name="genderModel.versionId" [column]="'6'" ></hidden-input>
+    </div>
+            <div class="row" id="Row961" style="float: right;" >
+            <simple-button [widgetConfig]="save" [label]="'Save'" [column]="'3'" [buttonSize]="'btn-lg'" [buttonStyle]="'primary'" (onClick)="onSaveClick()" ></simple-button>
+            <simple-button [widgetConfig]="update" [label]="'Update'" [column]="'3'" [buttonSize]="'btn-lg'" [buttonStyle]="'primary'" (onClick)="onUpdateClick()" ></simple-button>
+            <simple-button [widgetConfig]="reset" [label]="'Reset'" [column]="'3'" [buttonSize]="'btn-lg'" [buttonStyle]="'primary'" (onClick)="onResetClick()" ></simple-button>
+    </div>
+            <div class="row" id="Row52" >
+            <data-grid [widgetConfig]="genderGrid" [title]="'Gender List'" [column]="'12'" [clientSidePaging]="true" [pageSize]="50" [serviceurl] = "'secure/Gender/findAll'" [methodType] = "'get'"  (rowData)="onGenderGridRowClick($event)" [localdata]="genderGridData" >
+    </data-grid>
+    </div>
+    </form>
+    </div>
+    </div>
+</div>

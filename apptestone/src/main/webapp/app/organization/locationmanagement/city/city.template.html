@@ -1,0 +1,43 @@
+<div class="container-fluid" id="City826">
+        <div class="card" id="Card838" style="background-color: #fefefe;" >
+    <div class="card-header primary-color white-text" >
+    City
+    </div>
+    <div class="card-block" >
+            <form id="Form253" >
+            <div class="row" id="Row200" style="background-color: #fefefe;" >
+            <select-input [(ngModel)]="cityModel.countryId" name="cityModel.countryId" [widgetConfig]="countryId" [label]="'Country'" [column]="'6'" [serviceurl] = "'secure/Country/findAll'" [methodType] = "'get'"  [localdata]="countryIdData" (selectedData)="onCountryIdSelect($event)" ></select-input>
+            <select-input [(ngModel)]="cityModel.stateId" name="cityModel.stateId" [widgetConfig]="stateId" [label]="'State'" [column]="'6'" [localdata]="stateIdData" ></select-input>
+    </div>
+            <div class="row" id="Row365" style="background-color: #fefefe;" >
+            <text-input [(ngModel)]="cityModel.cityName" name="cityModel.cityName" [widgetConfig]="cityName" [label]="'City Name'" [column]="'6'" ></text-input>
+            <text-input [(ngModel)]="cityModel.cityCodeChar2" name="cityModel.cityCodeChar2" [widgetConfig]="cityCodeChar2" [label]="'City Code'" [column]="'6'" ></text-input>
+    </div>
+            <div class="row" id="Row115" style="background-color: #fefefe;" >
+            <number-input [(ngModel)]="cityModel.cityCode" name="cityModel.cityCode" [widgetConfig]="cityCode" [label]="'City Code1'" [column]="'6'" ></number-input>
+            <textarea-input [(ngModel)]="cityModel.cityDescription" name="cityModel.cityDescription" [widgetConfig]="cityDescription" [label]="'City Description'" [column]="'6'" ></textarea-input>
+    </div>
+            <div class="row" id="Row752" style="background-color: #fefefe;" >
+            <text-input [(ngModel)]="cityModel.cityFlag" name="cityModel.cityFlag" [widgetConfig]="cityFlag" [label]="'Flag'" [column]="'6'" ></text-input>
+            <number-input [(ngModel)]="cityModel.cityLatitude" name="cityModel.cityLatitude" [widgetConfig]="cityLatitude" [label]="'City Latitude'" [column]="'6'" ></number-input>
+    </div>
+            <div class="row" id="Row980" style="background-color: #fefefe;" >
+            <number-input [(ngModel)]="cityModel.cityLongitude" name="cityModel.cityLongitude" [widgetConfig]="cityLongitude" [label]="'City Longitude'" [column]="'6'" ></number-input>
+    </div>
+            <div class="row" id="Row80" style="background-color: #fefefe;" >
+            <hidden-input [(ngModel)]="cityModel.cityId" name="cityModel.cityId" [column]="'6'" ></hidden-input>
+            <hidden-input [(ngModel)]="cityModel.versionId" name="cityModel.versionId" [column]="'6'" ></hidden-input>
+    </div>
+            <div class="row" id="Row960" style="float: right;" >
+            <simple-button [widgetConfig]="save" [label]="'Save'" [column]="'3'" [buttonSize]="'btn-lg'" [buttonStyle]="'primary'" (onClick)="onSaveClick()" ></simple-button>
+            <simple-button [widgetConfig]="update" [label]="'Update'" [column]="'3'" [buttonSize]="'btn-lg'" [buttonStyle]="'primary'" (onClick)="onUpdateClick()" ></simple-button>
+            <simple-button [widgetConfig]="reset" [label]="'Reset'" [column]="'3'" [buttonSize]="'btn-lg'" [buttonStyle]="'primary'" (onClick)="onResetClick()" ></simple-button>
+    </div>
+            <div class="row" id="Row955" >
+            <data-grid [widgetConfig]="cityGrid" [title]="'City List'" [column]="'12'" [clientSidePaging]="true" [pageSize]="50" [serviceurl] = "'secure/City/findAll'" [methodType] = "'get'"  (rowData)="onCityGridRowClick($event)" [localdata]="cityGridData" >
+    </data-grid>
+    </div>
+    </form>
+    </div>
+    </div>
+</div>

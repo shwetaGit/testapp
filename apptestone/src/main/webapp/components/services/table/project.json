@@ -1,0 +1,105 @@
+{
+  "data" : [{
+      "project"     : "Ext Forms: Field Anchoring",
+      "description" : "Integrate 2.0 Forms with 2.0 Layouts",
+      "estimate"    : "6",
+      "rate"        : "14",
+      "due"         : "06/24/2007"
+    },{
+      "project"     : "Ext Forms: Field Anchoring",
+      "description" : "Do Sumthing",
+      "estimate"    : "16",
+      "rate"        : "415",
+      "due"         : "05/14/2016"
+    },{
+    "project"     : "Ext Forms: Field Anchoring",
+    "description" : "Dont Do This",
+    "estimate"    : "64",
+    "rate"        : "714",
+    "due"         : "11/24/2014"
+    }
+    ,{
+      "project"     : "Ext Forms: Field Anchoring",
+      "description" : "Test Events",
+      "estimate"    : "89",
+      "rate"        : "96",
+      "due"         : "12/14/2007"
+    },{
+      "project"     : "Ext Forms: Field Anchoring",
+      "description" : "Add support for multiple types of anchors",
+      "estimate"    : "1",
+      "rate"        : "8",
+      "due"         : "06/24/2007"
+    },{
+      "project"     : "Ext Forms: Field Anchoring",
+      "description" : "Testing and debugging",
+      "estimate"    : "21",
+      "rate"        : "89",
+      "due"         : "06/24/2007"
+    },{
+      "project"     : "Ext Grid: Single-level Grouping",
+      "description" : "Required to Add Hooks",
+      "estimate"    : "12",
+      "rate"        : "78",
+      "due"         : "06/24/2007"
+    },
+    {
+      "project"     : "Ext Grid: Single-level Grouping",
+      "description" : "Extend Store with grouping functionality",
+      "estimate"    : "19",
+      "rate"        : "13",
+      "due"         : "9/04/2001"
+    },
+    {
+      "project"     : "Ext Grid: Single-level Grouping",
+      "description" : "Updates in editor grids",
+      "estimate"    : "17",
+      "rate"        : "5",
+      "due"         : "09/01/2002"
+    },
+    {
+      "project"     : "Ext Grid: Summary Rows",
+      "description" : "Integrate summarie",
+      "estimate"    : "17",
+      "rate"        : "5",
+      "due"         : "01/02/2007"
+    },
+    {
+      "project"     : "Ext Grid: Summary Rows",
+      "description" : "Dynamic summary updates",
+      "estimate"    : "10",
+      "rate"        : "7",
+      "due"         : "04/05/2009"
+    },
+    {
+      "project"     : "Ext Grid: Summary Rows",
+      "description" : "Remote summary integration",
+      "estimate"    : "172",
+      "rate"        : "15",
+      "due"         : "01/01/2006"
+    }
+  ],
+  "column" : [
+    {
+      "text" : "Project",
+      "dataIndex" : "project"
+    },
+    {
+      "text" : "Estimate",
+      "dataIndex" : "estimate"
+    },
+    {
+      "text"  :  "Rate",
+      "dataIndex" : "rate"
+    },
+    {
+      "text" :  "Due",
+      "dataIndex" : "due"
+    }
+  ],
+
+  "groupbyKey" : "project",
+  "groupbyValue" : "description",
+  "groupLabel"    : "Project"
+
+}

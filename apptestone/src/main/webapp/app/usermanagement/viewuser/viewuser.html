@@ -1,0 +1,70 @@
+
+<div class="container-fluid" >
+    <div class="row">
+        <div class="col-lg-12">
+        <div class="card">
+                <h6 class="card-header primary-color white-text" >User Details</h6>
+                <div class="card-block">
+                    <div class="row">
+                        <!--<text-input [label]="'Title'"  [column]="'6'" [widgetConfig]="titleConfig"  [(ngModel)]="coreContacts.titleId" name="titleId"></text-input>
+                        <text-input [label]="'Native Title '"  [column]="'6'" [widgetConfig]="nativeTitleConfig"  [(ngModel)]="coreContacts.nativeTitle" name="nativeTitle"></text-input>
+-->
+                        <text-input [label]="'First Name'"  [column]="'6'" [widgetConfig]="firstNameConfig"  [(ngModel)]="coreContacts.firstName" name="firstName"></text-input>
+                        <text-input [label]="'Native First Name'"  [column]="'6'" [widgetConfig]="lastNameConfig"  [(ngModel)]="coreContacts.nativeFirstName" name="nativeFirstName"></text-input>
+
+                        <text-input [label]="'Middle Name'"  [column]="'6'" [widgetConfig]="middleNameConfig"  [(ngModel)]="coreContacts.middleName" name="middleName"></text-input>
+                        <text-input [label]="'Native Middle Name'"  [column]="'6'" [widgetConfig]="nativeMiddleNameConfig"  [(ngModel)]="coreContacts.nativeMiddleName" name="nativeMiddleName"></text-input>
+
+                        <text-input [label]="'Last Name'"  [column]="'6'" [widgetConfig]="lastNameConfig"  [(ngModel)]="coreContacts.lastName" name="lastName"></text-input>
+                        <text-input [label]="' Native Last Name'"  [column]="'6'" [widgetConfig]="nativeLastNameConfig"  [(ngModel)]="coreContacts.nativeLastName" name="nativeLastName"></text-input>
+
+                        <text-input [label]="'Phone NO'"  [column]="'6'" [widgetConfig]="phoneNoConfig"  [(ngModel)]="coreContacts.phoneNumber" name="phoneNumber"></text-input>
+                        <text-input [label]="'Age'"  [column]="'6'" [widgetConfig]="ageConfig"  [(ngModel)]="coreContacts.age" name="age"></text-input>
+
+                        <text-input [label]="'Date Of Birth'"  [column]="'6'" [widgetConfig]="dobConfig"  [(ngModel)]="coreContacts.dateofbirth" name="dateofbirth"></text-input>
+
+                        <text-input [label]="'Email Id'"  [column]="'6'" [widgetConfig]="emailConfig"  [(ngModel)]="coreContacts.emailId" name="emailId"></text-input>
+                       <!-- <text-input [label]="'Language'"  [column]="'6'" [widgetConfig]="languageConfig"  [(ngModel)]="coreContacts.nativeLanguageCode" name="nativeLanguageCode"></text-input>-->
+
+                        <text-input [label]="'Timezone'"  [column]="'6'" [widgetConfig]="timezoneConfig"  [(ngModel)]="timezone.timeZoneLabel" name="timeZoneLabel"></text-input>
+
+                        <div class="col-lg-6">
+                            <h6>Gender</h6>
+                            <radio-group-input [groupName]="'gender'" [column]="'6'"  [preSelected]="1" [widgetConfig]="radioGroupConfig" [localdata]="radioObject"  ></radio-group-input>
+
+                           <!-- <radio-group-input [serviceurl]="'secure/Gender/findAll'" [methodType]="'get'" [groupName]="'gender'"  [preSelected]="coreContacts.genderId" [column]="'6'" [widgetConfig]="radioGroupConfig" [localData]="radioObject"  ></radio-group-input>-->
+                        </div>
+
+                    </div>
+
+                </div>
+                <h6 class="card-header primary-color white-text">Address Details</h6>
+                <div class="card-block">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <data-grid  [title] = "'Address Details'" [clientSidePaging]="'true'" [widgetConfig]= "dataGridConfig" [clientSidePaging] ="true" [pageSize] = "5" [column]="6" [localdata] ="displatGridDataObject"></data-grid>
+                        </div>
+                    </div>
+                </div>
+
+            <h6 class="card-header primary-color white-text">Login Credentials</h6>
+            <div class="card-block">
+                <text-input [label]="'Login Id'"  [column]="'6'" [widgetConfig]="loginConfig"  [(ngModel)]="rootObject.loginId" name="loginId"></text-input>
+            </div>
+            <h6 class="card-header primary-color white-text">Other Settings</h6>
+            <div class="card-block">
+                <text-input [label]="'Session Time Out'"  [column]="'6'" [widgetConfig]="sessionConfig"  [(ngModel)]="user.sessionTimeout" name="sessionTimeout"></text-input>
+            </div>
+            <div class="customfooter">
+                <simple-button [widgetConfig]="backConfig" (onClick)="backToUserManagement()"  [label]="'Back'"></simple-button>
+            </div>
+
+        </div>
+    </div>
+        </div>
+
+</div>
+
+
+
+

@@ -1,0 +1,62 @@
+   <header>
+
+
+    <ul id="slide-out" class="side-nav fixed ">
+
+
+        <li>
+            <div class="logo-wrapper waves-light">
+                <a href="#"><img src="images/logo.png" class="img-fluid flex-center"></a>
+            </div>
+        </li>
+
+        <menu-tree [menuList]="menuList"></menu-tree>
+
+
+    </ul>
+
+
+
+    <nav class="navbar navbar-fixed-top scrolling-navbar double-nav">
+
+
+        <div class="pull-left">
+            <a href="#" data-activates="slide-out" class="button-collapse"><i class="fa fa-bars"></i></a>
+        </div>
+
+
+
+
+
+<ul class="nav navbar-nav">
+       
+        </ul>
+        <ul class="nav navbar-nav pull-right">
+
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> {{loggedUser}}</a>
+                <div class="dropdown-menu dropdown-primary" aria-labelledby="dropdownMenu1" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+					<a class="dropdown-item" (click)="navigateToMyProfile()">My Profile</a>
+                    <a class="dropdown-item" (click)="changePassword()">Change Password</a>
+                    <a class="dropdown-item" (click)="logoutAuthenticate()"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+
+</header>
+
+
+
+<main >
+<br>
+<div class="row">
+        <div class="col-lg-12">
+            <router-outlet></router-outlet>
+
+        </div>
+    </div>
+
+</main>

@@ -1,0 +1,33 @@
+<div class="container-fluid" >
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <h6 class="card-header primary-color white-text">User Data</h6>
+                <div class="card-block">
+                    <form id="userMangeForm">
+                   <p id="sessionField" style="display: none">
+                       <number-input [label]="'Session Time Out'"  [column]="'6'" [widgetConfig]="sessionConfig"  [(ngModel)]="userData.sessionTimeout" name="sessionTimeout"></number-input>
+                   </p>
+                    <custom-data-grid [clientSidePaging]="'true'" [widgetConfig]= "userGridConfig" [clientSidePaging] ="true" [pageSize] = "20" [column]="7" [localdata] ="displatGridDataObject"  (checkboxData)="fetchCheckboxData($event)" (routeData)="fetchRouteData($event)"></custom-data-grid>
+
+                    <div class="customfooter">
+                        <simple-button [widgetConfig]="addUserConfig" (onClick)="addUserClick()"  [label]="'Add User'"></simple-button>
+                        <simple-button [widgetConfig]="resendPassConfig" (onClick)="resetResendClick()"  [label]="'Reset & Resend Password'"></simple-button>
+                        <simple-button [widgetConfig]="changePassConfig" (onClick)="changePassClick()"  [label]="'Change Password in Next Login'"></simple-button>
+                        <simple-button [widgetConfig]="lockAccountConfig" (onClick)="lockClick()"  [label]="'Lock Account'"></simple-button>
+                        <simple-button [widgetConfig]="unlockAccountConfig" (onClick)="unlockClick()"  [label]="'Unlock Account'"></simple-button>
+                        <simple-button [widgetConfig]="sessionConfig" (onClick)="sessionClick()"  [label]="'Save Session TimeOut'"></simple-button>
+                    </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+

@@ -1,0 +1,32 @@
+<div class="container-fluid" id="Question263">
+        <div class="card" id="Card404" style="background-color: #fefefe;" >
+    <div class="card-header primary-color white-text" >
+    Question
+    </div>
+    <div class="card-block" >
+            <form id="Form230" >
+            <div class="row" id="Row195" style="background-color: #fefefe;" >
+            <number-input [(ngModel)]="questionModel.levelid" name="questionModel.levelid" [widgetConfig]="levelid" [label]="'Level Id'" [column]="'6'" ></number-input>
+            <text-input [(ngModel)]="questionModel.question" name="questionModel.question" [widgetConfig]="question" [label]="'Question'" [column]="'6'" ></text-input>
+    </div>
+            <div class="row" id="Row197" style="background-color: #fefefe;" >
+            <textarea-input [(ngModel)]="questionModel.questionDetails" name="questionModel.questionDetails" [widgetConfig]="questionDetails" [label]="'Details'" [column]="'6'" ></textarea-input>
+            <text-input [(ngModel)]="questionModel.questionIcon" name="questionModel.questionIcon" [widgetConfig]="questionIcon" [label]="'Icon'" [column]="'6'" ></text-input>
+    </div>
+            <div class="row" id="Row854" style="background-color: #fefefe;" >
+            <hidden-input [(ngModel)]="questionModel.questionId" name="questionModel.questionId" [column]="'6'" ></hidden-input>
+            <hidden-input [(ngModel)]="questionModel.versionId" name="questionModel.versionId" [column]="'6'" ></hidden-input>
+    </div>
+            <div class="row" id="Row648" style="float: right;" >
+            <simple-button [widgetConfig]="save" [label]="'Save'" [column]="'3'" [buttonSize]="'btn-lg'" [buttonStyle]="'primary'" (onClick)="onSaveClick()" ></simple-button>
+            <simple-button [widgetConfig]="update" [label]="'Update'" [column]="'3'" [buttonSize]="'btn-lg'" [buttonStyle]="'primary'" (onClick)="onUpdateClick()" ></simple-button>
+            <simple-button [widgetConfig]="reset" [label]="'Reset'" [column]="'3'" [buttonSize]="'btn-lg'" [buttonStyle]="'primary'" (onClick)="onResetClick()" ></simple-button>
+    </div>
+            <div class="row" id="Row290" >
+            <data-grid [widgetConfig]="questionGrid" [title]="'Question List'" [column]="'12'" [clientSidePaging]="true" [pageSize]="50" [serviceurl] = "'secure/Question/findAll'" [methodType] = "'get'"  (rowData)="onQuestionGridRowClick($event)" [localdata]="questionGridData" >
+    </data-grid>
+    </div>
+    </form>
+    </div>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+/* YOUR CUSTOM STYLES */
+.app-preloader{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.newcustomselect {
+    position: relative;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    outline: 0;
+    line-height: 3rem;
+    width: 100%;
+    font-size: 1rem;
+    margin: 0 0 15px;
+    padding: 0;
+    display: block;
+
+}
+.customfooter
+{
+    background-color:#e0e0e0;
+    position:fixed;
+    bottom:0px;
+    left: 16%;
+    right: 0%;
+    height:50px;
+    margin-bottom:0px;
+}
+
+.collapsibleList li{
+    cursor:auto;
+    font-size: medium;
+    margin: 10px;
+}
+
+li.collapsibleListOpen{
+    list-style-image:url('../../images/collapse.png');
+
+    cursor:pointer;
+    font-size: medium;
+    margin: 10px;
+}
+
+li.collapsibleListClosed{
+    list-style-image:url('../../images/exapand.png');
+    cursor:pointer;
+    margin: 10px;
+    font-size: medium;
+}

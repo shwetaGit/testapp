@@ -1,0 +1,47 @@
+<div class="container-fluid" id="Country418">
+        <div class="card" id="Card990" style="background-color: #fefefe;" >
+    <div class="card-header primary-color white-text" >
+    Country
+    </div>
+    <div class="card-block" >
+            <form id="Form112" >
+            <div class="row" id="Row2" style="background-color: #fefefe;" >
+            <text-input [(ngModel)]="countryModel.countryName" name="countryModel.countryName" [widgetConfig]="countryName" [label]="'Name'" [column]="'6'" ></text-input>
+            <text-input [(ngModel)]="countryModel.countryCode1" name="countryModel.countryCode1" [widgetConfig]="countryCode1" [label]="'Code 1'" [column]="'6'" ></text-input>
+    </div>
+            <div class="row" id="Row447" style="background-color: #fefefe;" >
+            <text-input [(ngModel)]="countryModel.countryCode2" name="countryModel.countryCode2" [widgetConfig]="countryCode2" [label]="'Code 2'" [column]="'6'" ></text-input>
+            <text-input [(ngModel)]="countryModel.countryFlag" name="countryModel.countryFlag" [widgetConfig]="countryFlag" [label]="'Flag'" [column]="'6'" ></text-input>
+    </div>
+            <div class="row" id="Row330" style="background-color: #fefefe;" >
+            <text-input [(ngModel)]="countryModel.capital" name="countryModel.capital" [widgetConfig]="capital" [label]="'Capital'" [column]="'6'" ></text-input>
+            <text-input [(ngModel)]="countryModel.currencyCode" name="countryModel.currencyCode" [widgetConfig]="currencyCode" [label]="'Currency Code'" [column]="'6'" ></text-input>
+    </div>
+            <div class="row" id="Row654" style="background-color: #fefefe;" >
+            <text-input [(ngModel)]="countryModel.currencyName" name="countryModel.currencyName" [widgetConfig]="currencyName" [label]="'Currency Name'" [column]="'6'" ></text-input>
+            <text-input [(ngModel)]="countryModel.currencySymbol" name="countryModel.currencySymbol" [widgetConfig]="currencySymbol" [label]="'Currency Symbol'" [column]="'6'" ></text-input>
+    </div>
+            <div class="row" id="Row121" style="background-color: #fefefe;" >
+            <number-input [(ngModel)]="countryModel.capitalLatitude" name="countryModel.capitalLatitude" [widgetConfig]="capitalLatitude" [label]="'Capital Latitude'" [column]="'6'" ></number-input>
+            <number-input [(ngModel)]="countryModel.capitalLongitude" name="countryModel.capitalLongitude" [widgetConfig]="capitalLongitude" [label]="'Capital Longitude'" [column]="'6'" ></number-input>
+    </div>
+            <div class="row" id="Row876" style="background-color: #fefefe;" >
+            <number-input [(ngModel)]="countryModel.isoNumeric" name="countryModel.isoNumeric" [widgetConfig]="isoNumeric" [label]="'ISO Numeric'" [column]="'6'" ></number-input>
+    </div>
+            <div class="row" id="Row134" style="background-color: #fefefe;" >
+            <hidden-input [(ngModel)]="countryModel.countryId" name="countryModel.countryId" [column]="'6'" ></hidden-input>
+            <hidden-input [(ngModel)]="countryModel.versionId" name="countryModel.versionId" [column]="'6'" ></hidden-input>
+    </div>
+            <div class="row" id="Row59" style="float: right;" >
+            <simple-button [widgetConfig]="save" [label]="'Save'" [column]="'3'" [buttonSize]="'btn-lg'" [buttonStyle]="'primary'" (onClick)="onSaveClick()" ></simple-button>
+            <simple-button [widgetConfig]="update" [label]="'Update'" [column]="'3'" [buttonSize]="'btn-lg'" [buttonStyle]="'primary'" (onClick)="onUpdateClick()" ></simple-button>
+            <simple-button [widgetConfig]="reset" [label]="'Reset'" [column]="'3'" [buttonSize]="'btn-lg'" [buttonStyle]="'primary'" (onClick)="onResetClick()" ></simple-button>
+    </div>
+            <div class="row" id="Row479" >
+            <data-grid [widgetConfig]="countryGrid" [title]="'Country List'" [column]="'12'" [clientSidePaging]="true" [pageSize]="50" [serviceurl] = "'secure/Country/findAll'" [methodType] = "'get'"  (rowData)="onCountryGridRowClick($event)" [localdata]="countryGridData" >
+    </data-grid>
+    </div>
+    </form>
+    </div>
+    </div>
+</div>

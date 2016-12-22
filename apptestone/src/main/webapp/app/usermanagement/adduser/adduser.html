@@ -1,0 +1,122 @@
+
+<div class="container-fluid" >
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+            <form id="userForm">
+            <h6 class="card-header primary-color white-text" >General Info</h6>
+            <div class="card-block">
+                <div class="row">
+                    <select-input [serviceurl]="'secure/Title/findAll'" [methodType]="'get'" [column]="'6'" [label]="'Title'" [widgetConfig]="titleConfig"  [localdata] ="titleData" [(ngModel)]="userData.titleId" name="userData.titleId"></select-input>
+                    <select-input [serviceurl]="'secure/Title/findAll'" [methodType]="'get'" [column]="'6'" [label]="'Native Title'" [widgetConfig]="nativeTitleConfig"  [localdata] ="nativeTitleData" [(ngModel)]="userData.nativeTitle" name="nativeTitle"></select-input><!--(selectedData)="selectNativetTitle($event)"-->
+                    <br><br><br>
+                    <text-input [label]="'First Name'"  [column]="'6'" [widgetConfig]="firstNameConfig"  [(ngModel)]="userData.firstName" name="firstName"></text-input>
+                    <text-input [label]="'Native First Name'" [column]="'6'" [widgetConfig]="nativeFirstNameConfig"  [(ngModel)]="userData.nativeFirstName" name="nativeFirstName"></text-input>
+
+                    <text-input [label]="'Middle Name'" [column]="'6'" [widgetConfig]="middleNameConfig"  [(ngModel)]="userData.middleName" name="middleName"></text-input>
+                    <text-input [label]="'Native Middle Name'"  [column]="'6'" [widgetConfig]="nativeMiddleNameConfig"  [(ngModel)]="userData.nativeMiddleName" name="nativeMiddleName"></text-input>
+
+                    <text-input [label]="'Last Name'" [column]="'6'" [widgetConfig]="lastNameConfig"  [(ngModel)]="userData.lastName" name="lastName"></text-input>
+                    <text-input [label]="'Native Last Name'" [column]="'6'" [widgetConfig]="nativeLastNameConfig"  [(ngModel)]="userData.nativeLastName" name="nativeLastName"></text-input>
+
+                        <date-input [label]="'DOB'"  [column]="'6'" [widgetConfig]="dateConfig"  (selectedvalue)="getDate($event)" [(ngModel)]="userData.dateofbirth" name="dateofbirth" ></date-input>
+                        <number-input [label]="'Age'" [column]="'6'" [widgetConfig]="ageConfig"  [(ngModel)]="userData.age" name="age"></number-input>
+
+                    <div class="col-lg-12">
+                    <div class="col-lg-6">
+                        <h6>Gender</h6>
+                        <radio-group-input [serviceurl]="'secure/Gender/findAll'" [methodType]="'get'" [groupName]="'gender'" (selectedData)="userData.genderId = $event.genderId" [column]="'6'" [widgetConfig]="radioGroupConfig" [localdata]="radioObject"  ></radio-group-input>
+                    </div>
+                    <div class="col-lg-6"></div><br><br>
+                    </div>
+
+                        <email-input [label]="'Email Id'"  [column]="'6'" [widgetConfig]="emailConfig"  [(ngModel)]="userData.emailId" name="emailId"></email-input>
+                        <text-input [label]="'Phone No'"  [regex]="'[0-9]{10}'"  [column]="'6'" [widgetConfig]="phoneNoConfig"  [(ngModel)]="userData.phoneNumber" name="phoneNumber"></text-input>
+                        <select-input [serviceurl]="'secure/Timezone/findAll'" [methodType]="'get'" [column]="'6'" [label]="'Timezone'" [widgetConfig]="timezoneConfig"  [localdata] ="timezoneddata" [(ngModel)]="userData.timezone.timeZoneId" name="timezone.timeZoneId"></select-input><!--(selectedData)="selectTimezone($event)"-->
+                       <select-input [serviceurl]="'secure/Language/findAll'" [methodType]="'get'" [column]="'6'" [label]="'Language Code'" [widgetConfig]="languageConfig"  [localdata] ="languageData" [(ngModel)]="userData.nativeLanguageCode" name="nativeLanguageCode"></select-input><!--(selectedData)="selectLanguage($event)"-->
+                </div>
+
+            </div>
+            <div class="row">
+            <div class="accordion" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default">
+                    <div class="panel-heading " role="tab" id="headingOne">
+                        <h6 class="card-header primary-color ">
+                            <a style="color: white" class="arrow-r" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne"> Contact Info<i class="fa fa-angle-down rotate-icon"></i>
+                            </a>
+                        </h6>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <form  id="addressForm">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <select-input [serviceurl]="'secure/AddressType/findAll'" [methodType]="'get'" [column]="'6'" [label]="'Address Type'" [widgetConfig]="addressTypeConfig" (selectedData)="selectAddressType($event)" [localdata] ="addressTypeddata" [(ngModel)]="address.addressTypeId" name="addressTypeId"></select-input>
+                                <text-input [label]="'Address Label'" [column]="'6'" [widgetConfig]="addressLabelConfig"  [(ngModel)]="address.addressLabel" name="addressLabel"></text-input>
+                            </div>
+                            <div class="col-lg-12">
+                                <text-input [label]="'Address 1'" [column]="'6'" [widgetConfig]="address1Config"  [(ngModel)]="address.address1" name="address1"></text-input>
+                                <text-input [label]="'Address 2'" [column]="'6'" [widgetConfig]="address2Config"  [(ngModel)]="address.address2" name="address2"></text-input>
+                            </div>
+                            <div class="col-lg-12">
+                                <select-input [serviceurl]="'secure/Country/findAll'" [methodType]="'get'" [column]="'6'" [label]="'Country'" [widgetConfig]="countryConfig" (selectedData)="selectCountryData($event,countryConfig)" [localdata] ="countryIdddata" [(ngModel)]="address.countryId" name="countryId"></select-input>
+                                <text-input [label]="'Address 3'" [column]="'6'" [widgetConfig]="address3Config"  [(ngModel)]="address.address3" name="address3"></text-input>
+                            </div>
+                            <div class="col-lg-12">
+                                <select-input [column]="'6'" [label]="'State'" [widgetConfig]="stateIdsConfig" (selectedData)="selectStateData($event)" [localdata] ="stateIdddata"  [(ngModel)]="address.stateId" name="stateId"></select-input>
+                                <number-input [label]="'Latitude'"  [column]="'6'" [widgetConfig]="latitudeConfig"  [(ngModel)]="address.latitude" name="latitude"></number-input>
+                            </div>
+                            <div class="col-lg-12">
+                                <select-input [column]="'6'" [label]="'City'" [widgetConfig]="cityIdsConfig" (selectedData)="selectCityData($event)" [localdata] ="cityIddData"  [(ngModel)]="address.cityId" name="cityId"></select-input>
+                                <number-input [label]="'Longitude'"  [column]="'6'" [widgetConfig]="longitudeConfig"  [(ngModel)]="address.longitude" name="longitude"></number-input>
+                            </div>
+                            <div class="col-lg-12">
+                                <text-input  [label]="'Postal Code'" [regex]="'[0-9]{6}'"  [column]="'6'" [widgetConfig]="postalCodeConfig"  [(ngModel)]="address.zipcode" name="zipcode"></text-input>
+                                <div class="col-lg-6">
+                                    <div style="float: right">
+                                    <simple-button [widgetConfig]="addAddressConfig" (onClick)="addAddress()"  [label]="'Add Address'"></simple-button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        </form>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <data-grid  [title] = "'Address Details'" [clientSidePaging]="'true'" [widgetConfig]= "dataGridConfig" [clientSidePaging] ="true" [pageSize] = "5" [column]="7" [localdata] ="displatGridDataObject" ></data-grid>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <h6 class="card-header primary-color white-text">Other Settings</h6>
+            <div class="card-block">
+                <number-input [label]="'Session Time Out'"  [column]="'6'" [widgetConfig]="sessionConfig"  [(ngModel)]="user.sessionTimeout" name="sessionTimeout"></number-input>
+               <!-- <div style="float: right">
+                    <simple-button [widgetConfig]="SaveConfig" (onClick)="saveUserData()"  [label]="'Save'"></simple-button>
+                    <div style="float: right">
+                       <reset-button [buttonStyle]="'primary'" [widgetConfig]="ResetConfig" (onClick)="resetForm()"  [label]="'Reset'" ></reset-button>
+                    </div>
+                </div>-->
+            </div>
+
+                <div class="customfooter">
+                    <div style="float: right">
+                        <simple-button [widgetConfig]="SaveConfig" (onClick)="saveUserData()"  [label]="'Save'"></simple-button>
+                        <div style="float: right">
+                            <reset-button [buttonStyle]="'primary'" [widgetConfig]="ResetConfig" (onClick)="resetForm()"  [label]="'Reset'" ></reset-button>
+                        </div>
+                    </div>
+                    <div  style="float: left">
+                        <simple-button [widgetConfig]="backConfig" (onClick)="backToUserManagement()"  [label]="'Back'"></simple-button>
+                    </div>
+                </div>
+
+
+
+         </form>
+        </div>
+        </div>
+    </div>
+
+</div>

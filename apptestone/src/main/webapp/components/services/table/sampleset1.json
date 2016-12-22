@@ -1,0 +1,246 @@
+{
+  "height" : "400",
+  "width" : "800",
+
+  "data" : [
+    {
+      "invno": "4571",
+      "invdate" : "14-5-2003",
+      "year": "2003",
+      "month": "May",
+      "category": "5",
+      "quantity": "15",
+      "sales": "554.2",
+      "region": "North"
+    },
+    {
+      "invno": "4331",
+      "invdate" : "4-1-2007",
+      "year": "2007",
+      "month": "May",
+      "category": "3",
+      "quantity": "15",
+      "sales": "54.2",
+      "region": "North"
+    },
+    {
+      "invno": "5842",
+      "invdate" : "7-11-2009",
+      "year": "2009",
+      "month": "May",
+      "category": "7",
+      "quantity": "25",
+      "sales": "80.7",
+      "region": "East"
+    },
+    {
+      "invno": "4471",
+      "invdate" : "14-5-2007",
+      "year": "2007",
+      "month": "May",
+      "category": "8",
+      "quantity": "25",
+      "sales": "80.65",
+      "region": "North"
+    },
+    {
+      "invno": "8515",
+      "invdate" : "13-5-2003",
+      "year": "2003",
+      "month": "May",
+      "category": "5",
+      "quantity": "15",
+      "sales": "88.57",
+      "region": "East"
+    },
+
+    {
+      "invno": "5217",
+      "invdate" : "12-12-2008",
+      "year": "2008",
+      "month": "May",
+      "category": "1",
+      "quantity": "34",
+      "sales": "93.7",
+      "region": "East"
+    },
+    {
+      "invno": "8685",
+      "invdate" : "10-7-2001",
+      "year": "2001",
+      "month": "May",
+      "category": "4",
+      "quantity": "10",
+      "sales": "80.57",
+      "region": "West"
+    },
+    {
+      "invno": "8684",
+      "invdate" : "1-7-2001",
+      "year": "2001",
+      "month": "May",
+      "category": "4",
+      "quantity": "11",
+      "sales": "80.77",
+      "region": "West"
+    },
+    {
+      "invno": "1285",
+      "invdate" : "29-10-2002",
+      "year": "2002",
+      "month": "May",
+      "category": "3",
+      "quantity": "17",
+      "sales": "70.47",
+      "region": "South"
+    },
+    {
+      "invno": "1205",
+      "invdate" : "20-10-2002",
+      "year": "2002",
+      "month": "May",
+      "category": "5",
+      "quantity": "33",
+      "sales": "69.47",
+      "region": "South"
+    },
+    {
+      "invno": "1285",
+      "invdate" : "29-10-2002",
+      "year": "2002",
+      "month": "May",
+      "category": "3",
+      "quantity": "17",
+      "sales": "70.47",
+      "region": "South"
+    },
+
+    {
+      "invno": "1081",
+      "invdate" : "29-1-2004",
+      "year": "2004",
+      "month": "May",
+      "category": "4",
+      "quantity": "74",
+      "sales": "30.47",
+      "region": "East"
+    },
+
+    {
+      "invno": "1001",
+      "invdate" : "17-1-2004",
+      "year": "2004",
+      "month": "May",
+      "category": "6",
+      "quantity": "29",
+      "sales": "40.44",
+      "region": "East"
+    },
+    {
+      "invno": "1221",
+      "invdate" : "8-8-2005",
+      "year": "2005",
+      "month": "May",
+      "category": "8",
+      "quantity": "17",
+      "sales": "59.44",
+      "region": "North"
+    },
+    {
+      "invno": "5231",
+      "invdate" : "20-8-2005",
+      "year": "2005",
+      "month": "May",
+      "category": "7",
+      "quantity": "41",
+      "sales": "15.84",
+      "region": "North"
+    },
+    {
+      "invno": "8746",
+      "invdate" : "16-5-2006",
+      "year": "2006",
+      "month": "May",
+      "category": "5",
+      "quantity": "51",
+      "sales": "5.22",
+      "region": "West"
+    },
+    {
+      "invno": "7876",
+      "invdate" : "16-10-2007",
+      "year": "2007",
+      "month": "May",
+      "category": "8",
+      "quantity": "12",
+      "sales": "64.22",
+      "region": "West"
+    },
+    {
+      "invno": "4001",
+      "invdate" : "14-5-2010",
+      "year": "2010",
+      "month": "May",
+      "category": "9",
+      "quantity": "10",
+      "sales": "34.7",
+      "region": "East"
+    },
+
+    {
+      "invno": "5852",
+      "invdate" : "25-6-2010",
+      "year": "2010",
+      "month": "May",
+      "category": "9",
+      "quantity": "23",
+      "sales": "33.3",
+      "region": "East"
+    }
+  ],
+
+  "column" : [{
+    "text" : "Invoice No.",
+    "dataIndex" : "invno",
+    "format" : "number"
+  },
+    {
+      "text" : "Invoice Date",
+      "dataIndex" : "invdate",
+      "format" : "number"
+    },
+    {
+      "text" : "Year",
+      "dataIndex" : "year",
+      "fomrat" : "number"
+    },
+    {
+      "text" : "Month",
+      "dataIndex" : "month",
+      "format" : "string"
+    },
+    {
+      "text" : "Category",
+      "dataIndex" : "category",
+      "format" : "string"
+    },
+    {
+      "text" : "Quantity",
+      "dataIndex" : "quantity",
+      "format" : "number"
+    },
+    {
+      "text" : "Sales",
+      "dataIndex" : "sales",
+      "format" : "string"
+    },
+    {
+      "text" : "Region",
+      "dataIndex" : "region",
+      "format" : "string"
+    }
+
+
+  ]
+
+}

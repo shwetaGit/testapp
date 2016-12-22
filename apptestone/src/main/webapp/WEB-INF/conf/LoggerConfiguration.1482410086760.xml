@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AppLogConfig version="1" reLoad="true">
+	<LoggingProperties>
+	<!-- 
+		File Refresh Time ============================================================= 
+		Refresh Time to reload this configuration file In a production environment,  
+		if you want to debug a specific component you can change the Alarm Log Levels 
+		(for specific Target like File, DB etc) of that specific components. Once 
+		the configuration is refreshed new Log Events will be written to the configured 
+		Target (File, DB etc). This will help to isolate and troubleshoot a production 
+		environment without shutting down the application. 
+		=============================================================================== 
+	-->
+		<refresh enableScheduler="true" timeUnit="Minutes"  delay="5" />
+	<!-- 
+		Event Queue ==================================================================== 
+		Logging Framework is Asynchronous in nature. Log Events goes to the 
+		Queue first and connectors takes the event from the queue for processing. 
+
+		Event Queue Type 
+			0 - Circular Queue (RECOMMENDED) 
+			1 - Infinite Queue with Initial Capacity and events will be wrapped in 
+			    Soft References (JVM willgarbage collect these soft references when
+			    it runs out of memory). 
+			2 - Infinite Queue (NOT RECOMMENDED).  
+		================================================================================ 
+	-->
+		<eventQueueType value="0" />
+		<eventQueueSize value="100000" />
+	<!-- 
+		Event Severity =================================================== 
+		Event Severity represents the state of the Event respective to 
+		that specific part of the App and End-Users interaction with App.
+		================================================================== 
+	-->
+		<eventSeverity>
+			<map>
+				<property UUID="B407E9B5-F011-49F9-AFC1-EC5FEE614703" id="0">Trace</property>
+				<property UUID="F481FDBC-5874-4051-AAEF-15668055CC1E" id="1">Debug</property>
+				<property UUID="A039D6E7-9450-48F4-9A60-8B430774D4C9" id="2">Info</property>
+				<property UUID="FE0AED51-6562-4987-BB89-D18077AFF2FA" id="3">Warning</property>
+				<property UUID="00D64B72-B3D4-486A-A118-11A631E4478B" id="4">Critical</property>
+				<property UUID="BF14FE4C-3FA4-4D28-B090-2E7286316E0D" id="5">Fatal</property>
+			</map>
+		</eventSeverity>
+	</LoggingProperties>
+	<!-- 
+		Connectors ============================================================= 
+		Connectors represents various data channels for Logging.  
+		Spartan Pluggable provides built-in connectors like 
+
+			1. Built-In Standard Out Connector 
+			2. Built-In Standard File Connector 
+			3. Pluggable Spartan Sprinkler supports DB, File, Syslog, TCP 
+			4. Pluggable External Connectors like Log4J 2, LogBack etc 
+
+		Connector Properties for different connector types are given 
+		under connector tags. Properties like database, file roll over 
+		for File Connector etc. 
+		======================================================================== 
+	-->
+	<connectors>
+	<!-- 
+		Pluggable Connectors =========================================== 
+		Pluggable Connectors are used to Load 3rd Party Connectors   
+		Like LogBack, Log4J 2 and Sprinkler (Default) and Standard Out 
+		================================================================ 
+	-->
+		<pluggableConnectors>
+			<fallBackLogLevel>3</fallBackLogLevel>
+			<pluggableConnector enable="true" fallBack="true" >
+				<pluggableConnector.name>StandardOutputConnector</pluggableConnector.name>
+				<pluggableConnector.className>com.spartan.pluggable.logger.api.StandardOutputConnector</pluggableConnector.className>
+				<map>
+					<pluggable.connector.property name="name">value</pluggable.connector.property>
+				</map>
+			</pluggableConnector>
+			<pluggableConnector enable="true" >
+				<pluggableConnector.name>StandardFileConnector</pluggableConnector.name>
+				<pluggableConnector.className>com.spartan.pluggable.logger.api.StandardFileConnector</pluggableConnector.className>
+				<map>
+					<pluggable.connector.property name="logLevel">3</pluggable.connector.property>
+					<pluggable.connector.property name="output.path">/home/applifire/workspace/</pluggable.connector.property>
+				</map>
+			</pluggableConnector>
+			<pluggableConnector enable="true" isDefault="true">
+				<pluggableConnector.name>Sprinkler</pluggableConnector.name>
+				<pluggableConnector.className>com.spartan.logger.core.LogMessenger</pluggableConnector.className>
+				<map>
+				</map>
+			</pluggableConnector>
+		</pluggableConnectors>
+	</connectors>
+</AppLogConfig>

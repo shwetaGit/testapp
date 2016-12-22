@@ -1,0 +1,80 @@
+{
+  "height" : "400",
+  "width" : "800",
+
+  "data" : [
+    {
+      "invno": "4571",
+      "invdate" : "14-5-2003",
+      "year": "2003"
+    },
+    {
+      "invno": "4331",
+      "invdate" : "4-1-2007",
+      "year": "2007"
+    },
+    {
+      "invno": "5842",
+      "invdate" : "7-11-2009",
+      "year": "2009"
+    },
+    {
+      "invno": "4471",
+      "invdate" : "14-5-2007",
+      "year": "2007"
+    },
+    {
+      "invno": "8515",
+      "invdate" : "13-5-2003",
+      "year": "2003"
+    },
+
+    {
+      "invno": "5217",
+      "invdate" : "12-12-2008",
+      "year": "2008"
+    },
+    {
+      "invno": "8685",
+      "invdate" : "10-7-2001",
+      "year": "2001"
+    },
+    {
+      "invno": "8684",
+      "invdate" : "1-7-2001",
+      "year": "2001"
+    },
+    {
+      "invno": "1285",
+      "invdate" : "29-10-2002",
+      "year": "2002"
+    },
+    {
+      "invno": "1205",
+      "invdate" : "20-10-2002",
+      "year": "2002"
+    },
+    {
+      "invno": "1285",
+      "invdate" : "29-10-2002",
+      "year": "2002"
+    }
+  ],
+
+  "column" : [{
+    "text" : "Invoice No.",
+    "dataIndex" : "invno"
+  },
+    {
+      "text" : "Invoice Date",
+      "dataIndex" : "invdate"
+    },
+    {
+      "text" : "Year",
+      "dataIndex" : "year"
+    }
+
+
+  ]
+
+}

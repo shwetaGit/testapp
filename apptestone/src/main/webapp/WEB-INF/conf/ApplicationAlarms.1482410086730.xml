@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+	== com.spartan.pluggable.logger.config.model.AppAlarm ==
+
+	Application Alarm Configurations are based on Domain Driven Design
+	Alarms are configured as per Bounded Context and Domain wise
+	Bounded Context
+		Domains
+			Alarms are classified into the following App Architecture Layers
+				1 = WEB SERIVCE
+				2 = DOMAIN SERVICE
+				3 = DATABASE SERVICE
+				4 = EXTERNAL SERVICE
+				5 = EVENT BUS
+				6 = ANALYTICS SERVICE
+				7 = SCHEDULER SERVICE
+
+	Every Alarm has the following properties
+
+		Alarm ID (Unique ID) : Combination fields from Below. From Bounded Context to Event Action.
+		==
+		Bounded Context ID
+		Domain ID
+		Alarm Layer (Web Service, Domain Service, Database Service etc)
+		Alarm Severity (Trace, Debug, Info, Warning, Critical, Fatal)
+		Alarm Context
+		Alarm Status (Based on HTTP Status Codes)
+		Event Action (Based on Unix File System Permissions)
+
+		Message
+		Diagnosis
+		Solution
+
+	For Every Alarm you can define the Alarm Log properties for various Log Connectors like Database, 
+	File, Syslog, Splunk etc
+
+	Alarm Severity represents the state of the Alarm respective to that specific part of the App.
+
+		0 = Trace
+		1 = Debug
+		2 = Info
+		3 = Warning
+		4 = Critical
+		5 = Fatal
+	
+	Alarm Status Code is classified based on HTTP Status Codes 
+
+		1xx = Informational
+		2xx = Success
+		4xx = Client Error
+		5xx = Server Error
+
+	https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
+
+	Event Action which Triggered this Alarm : Based on Unix File Permissions
+
+		1 = UPDATE
+		2 = WRITE
+		3 = WRITE & UPDATE
+		4 = READ
+		5 = READ, UPDATE
+		6 = READ, WRITE
+		7 = READ, WRITE & UPDATE
+		8 = DELETE
+
+	Alarm Log Priority is based on every connector. A Severity 1 Alarm can have log Priority of 5 for 
+	File Connector and Log Priority of 1 for Database Connector. Which means even though the Alarm 
+	Severity is low it should be logged into File and not into the Database.
+
+	This gives a very granular control on switching on an Alarm for a specific Bounded Context
+	or a Domain in App Runtime without disturbing the App or losing the App State and without
+	incurring performance penalties.
+
+	System Automatically Generates a Unique Alarm ID which contains the following
+	BoundedContextID, Domain ID, App Layer, Severity, Alarm Context, Status
+
+	Eg. SHPPR456107402 : It Says web Service Call failed in the Shopping Context Product Search with Severity 5
+
+	    SHP = Bounded Context ID : Shopping Module
+	    PR  = Domain ID : Product Catalogue
+	    4   = App Layer - Web Service
+	    5   = Alarm Severity (Critical)
+	    6	= Event Action (Read, Write)
+	    107 = Alarm Context
+	    402 = Status Code : HTTP Status Code
+
+-->
+<AppAlarms version="1" reLoad="true">
+	<appAlarm.refresh timeUnit="minutes" delay="30"></appAlarm.refresh>
+	<!-- App Specific Alarms : Example -->
+
+
+</AppAlarms>

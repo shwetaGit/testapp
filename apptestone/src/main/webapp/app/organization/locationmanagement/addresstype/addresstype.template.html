@@ -1,0 +1,31 @@
+<div class="container-fluid" id="AddressType395">
+        <div class="card" id="Card900" style="background-color: #fefefe;" >
+    <div class="card-header primary-color white-text" >
+    AddressType
+    </div>
+    <div class="card-block" >
+            <form id="Form961" >
+            <div class="row" id="Row562" style="background-color: #fefefe;" >
+            <text-input [(ngModel)]="addressTypeModel.addressType" name="addressTypeModel.addressType" [widgetConfig]="addressType" [label]="'Address Type'" [column]="'6'" ></text-input>
+            <textarea-input [(ngModel)]="addressTypeModel.addressTypeDesc" name="addressTypeModel.addressTypeDesc" [widgetConfig]="addressTypeDesc" [label]="'Address Type Desc'" [column]="'6'" ></textarea-input>
+    </div>
+            <div class="row" id="Row840" style="background-color: #fefefe;" >
+            <text-input [(ngModel)]="addressTypeModel.addressTypeIcon" name="addressTypeModel.addressTypeIcon" [widgetConfig]="addressTypeIcon" [label]="'Address Type Icon'" [column]="'6'" ></text-input>
+    </div>
+            <div class="row" id="Row813" style="background-color: #fefefe;" >
+            <hidden-input [(ngModel)]="addressTypeModel.addressTypeId" name="addressTypeModel.addressTypeId" [column]="'6'" ></hidden-input>
+            <hidden-input [(ngModel)]="addressTypeModel.versionId" name="addressTypeModel.versionId" [column]="'6'" ></hidden-input>
+    </div>
+            <div class="row" id="Row148" style="float: right;" >
+            <simple-button [widgetConfig]="save" [label]="'Save'" [column]="'3'" [buttonSize]="'btn-lg'" [buttonStyle]="'primary'" (onClick)="onSaveClick()" ></simple-button>
+            <simple-button [widgetConfig]="update" [label]="'Update'" [column]="'3'" [buttonSize]="'btn-lg'" [buttonStyle]="'primary'" (onClick)="onUpdateClick()" ></simple-button>
+            <simple-button [widgetConfig]="reset" [label]="'Reset'" [column]="'3'" [buttonSize]="'btn-lg'" [buttonStyle]="'primary'" (onClick)="onResetClick()" ></simple-button>
+    </div>
+            <div class="row" id="Row661" >
+            <data-grid [widgetConfig]="addressTypeGrid" [title]="'Address Type List'" [column]="'12'" [clientSidePaging]="true" [pageSize]="50" [serviceurl] = "'secure/AddressType/findAll'" [methodType] = "'get'"  (rowData)="onAddressTypeGridRowClick($event)" [localdata]="addressTypeGridData" >
+    </data-grid>
+    </div>
+    </form>
+    </div>
+    </div>
+</div>

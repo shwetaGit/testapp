@@ -1,0 +1,44 @@
+<div class="container-fluid" id="State950">
+        <div class="card" id="Card787" style="background-color: #fefefe;" >
+    <div class="card-header primary-color white-text" >
+    State
+    </div>
+    <div class="card-block" >
+            <form id="Form8" >
+            <div class="row" id="Row446" style="background-color: #fefefe;" >
+            <select-input [(ngModel)]="stateModel.countryId" name="stateModel.countryId" [widgetConfig]="countryId" [label]="'Country Code'" [column]="'6'" [serviceurl] = "'secure/Country/findAll'" [methodType] = "'get'"  [localdata]="countryIdData" ></select-input>
+            <text-input [(ngModel)]="stateModel.stateName" name="stateModel.stateName" [widgetConfig]="stateName" [label]="'State Name'" [column]="'6'" ></text-input>
+    </div>
+            <div class="row" id="Row820" style="background-color: #fefefe;" >
+            <number-input [(ngModel)]="stateModel.stateCode" name="stateModel.stateCode" [widgetConfig]="stateCode" [label]="'State Code'" [column]="'6'" ></number-input>
+            <text-input [(ngModel)]="stateModel.stateCodeChar2" name="stateModel.stateCodeChar2" [widgetConfig]="stateCodeChar2" [label]="'State Code 2'" [column]="'6'" ></text-input>
+    </div>
+            <div class="row" id="Row845" style="background-color: #fefefe;" >
+            <text-input [(ngModel)]="stateModel.stateCodeChar3" name="stateModel.stateCodeChar3" [widgetConfig]="stateCodeChar3" [label]="'State Code 3'" [column]="'6'" ></text-input>
+            <textarea-input [(ngModel)]="stateModel.stateDescription" name="stateModel.stateDescription" [widgetConfig]="stateDescription" [label]="'State Description'" [column]="'6'" ></textarea-input>
+    </div>
+            <div class="row" id="Row557" style="background-color: #fefefe;" >
+            <text-input [(ngModel)]="stateModel.stateFlag" name="stateModel.stateFlag" [widgetConfig]="stateFlag" [label]="'Flag'" [column]="'6'" ></text-input>
+            <text-input [(ngModel)]="stateModel.stateCapital" name="stateModel.stateCapital" [widgetConfig]="stateCapital" [label]="'Capital'" [column]="'6'" ></text-input>
+    </div>
+            <div class="row" id="Row396" style="background-color: #fefefe;" >
+            <number-input [(ngModel)]="stateModel.stateCapitalLatitude" name="stateModel.stateCapitalLatitude" [widgetConfig]="stateCapitalLatitude" [label]="'Capitial Latitude'" [column]="'6'" ></number-input>
+            <number-input [(ngModel)]="stateModel.stateCapitalLongitude" name="stateModel.stateCapitalLongitude" [widgetConfig]="stateCapitalLongitude" [label]="'Capitial Longitude'" [column]="'6'" ></number-input>
+    </div>
+            <div class="row" id="Row489" style="background-color: #fefefe;" >
+            <hidden-input [(ngModel)]="stateModel.stateId" name="stateModel.stateId" [column]="'6'" ></hidden-input>
+            <hidden-input [(ngModel)]="stateModel.versionId" name="stateModel.versionId" [column]="'6'" ></hidden-input>
+    </div>
+            <div class="row" id="Row153" style="float: right;" >
+            <simple-button [widgetConfig]="save" [label]="'Save'" [column]="'3'" [buttonSize]="'btn-lg'" [buttonStyle]="'primary'" (onClick)="onSaveClick()" ></simple-button>
+            <simple-button [widgetConfig]="update" [label]="'Update'" [column]="'3'" [buttonSize]="'btn-lg'" [buttonStyle]="'primary'" (onClick)="onUpdateClick()" ></simple-button>
+            <simple-button [widgetConfig]="reset" [label]="'Reset'" [column]="'3'" [buttonSize]="'btn-lg'" [buttonStyle]="'primary'" (onClick)="onResetClick()" ></simple-button>
+    </div>
+            <div class="row" id="Row717" >
+            <data-grid [widgetConfig]="stateGrid" [title]="'State List'" [column]="'12'" [clientSidePaging]="true" [pageSize]="50" [serviceurl] = "'secure/State/findAll'" [methodType] = "'get'"  (rowData)="onStateGridRowClick($event)" [localdata]="stateGridData" >
+    </data-grid>
+    </div>
+    </form>
+    </div>
+    </div>
+</div>

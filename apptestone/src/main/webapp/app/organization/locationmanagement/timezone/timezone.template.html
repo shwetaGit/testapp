@@ -1,0 +1,35 @@
+<div class="container-fluid" id="Timezone524">
+        <div class="card" id="Card836" style="background-color: #fefefe;" >
+    <div class="card-header primary-color white-text" >
+    Timezone
+    </div>
+    <div class="card-block" >
+            <form id="Form286" >
+            <div class="row" id="Row538" style="background-color: #fefefe;" >
+            <number-input [(ngModel)]="timezoneModel.utcdifference" name="timezoneModel.utcdifference" [widgetConfig]="utcdifference" [label]="'UTC Difference'" [column]="'6'" ></number-input>
+            <text-input [(ngModel)]="timezoneModel.gmtLabel" name="timezoneModel.gmtLabel" [widgetConfig]="gmtLabel" [label]="'GMT'" [column]="'6'" ></text-input>
+    </div>
+            <div class="row" id="Row41" style="background-color: #fefefe;" >
+            <text-input [(ngModel)]="timezoneModel.timeZoneLabel" name="timezoneModel.timeZoneLabel" [widgetConfig]="timeZoneLabel" [label]="'Time Zone'" [column]="'6'" ></text-input>
+            <text-input [(ngModel)]="timezoneModel.country" name="timezoneModel.country" [widgetConfig]="country" [label]="'Country'" [column]="'6'" ></text-input>
+    </div>
+            <div class="row" id="Row75" style="background-color: #fefefe;" >
+            <text-input [(ngModel)]="timezoneModel.cities" name="timezoneModel.cities" [widgetConfig]="cities" [label]="'City'" [column]="'6'" ></text-input>
+    </div>
+            <div class="row" id="Row101" style="background-color: #fefefe;" >
+            <hidden-input [(ngModel)]="timezoneModel.timeZoneId" name="timezoneModel.timeZoneId" [column]="'6'" ></hidden-input>
+            <hidden-input [(ngModel)]="timezoneModel.versionId" name="timezoneModel.versionId" [column]="'6'" ></hidden-input>
+    </div>
+            <div class="row" id="Row770" style="float: right;" >
+            <simple-button [widgetConfig]="save" [label]="'Save'" [column]="'3'" [buttonSize]="'btn-lg'" [buttonStyle]="'primary'" (onClick)="onSaveClick()" ></simple-button>
+            <simple-button [widgetConfig]="update" [label]="'Update'" [column]="'3'" [buttonSize]="'btn-lg'" [buttonStyle]="'primary'" (onClick)="onUpdateClick()" ></simple-button>
+            <simple-button [widgetConfig]="reset" [label]="'Reset'" [column]="'3'" [buttonSize]="'btn-lg'" [buttonStyle]="'primary'" (onClick)="onResetClick()" ></simple-button>
+    </div>
+            <div class="row" id="Row678" >
+            <data-grid [widgetConfig]="timezoneGrid" [title]="'Timezone List'" [column]="'12'" [clientSidePaging]="true" [pageSize]="50" [serviceurl] = "'secure/Timezone/findAll'" [methodType] = "'get'"  (rowData)="onTimezoneGridRowClick($event)" [localdata]="timezoneGridData" >
+    </data-grid>
+    </div>
+    </form>
+    </div>
+    </div>
+</div>

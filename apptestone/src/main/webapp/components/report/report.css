@@ -1,0 +1,202 @@
+#header-wrap {
+    position: fixed;
+    height: 200px;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+.maincontainer
+{
+    height: 100%;
+    width: 100%;
+    border: 0px solid red;
+    overflow: hidden;
+}
+#parent_div_1{
+    width:100%;
+    height:100%;
+    border:3px solid red;
+    margin-right:0px;
+    float:left;
+}
+.reportcontainer
+{
+
+    width: 100%;
+    height: 100%;
+    display:block;
+    overflow:hidden;
+    float:left;
+    border: 3px solid red;
+    position: fixed;
+}
+.dpcontainer {
+    width: 99%;
+    height: 10%;
+    margin: 5px;
+    display:block;
+    overflow:hidden;
+    border: 3px solid green;
+    position: fixed;
+}
+.tabcontainer {
+    width: 99%;
+    height: 90%;
+    border: 3px solid blue;
+}
+#reportDiv {
+    height: 70%;
+    width: 75%;
+    background-color: #fff;
+    position:fixed;
+
+}
+#dpDiv {;
+    position:relative;
+    width: 100%;
+    top:0%;
+    height: 10%;
+
+    border: 0px solid green;
+    background-color: white;
+}
+#tabContentDiv {
+    top:0%;
+    height: 90%;
+    margin: 0px;
+    overflow: hidden;
+    border: 0px solid red;
+    background-color: white;
+}
+#tabsDiv{
+
+    width: 100%;
+
+    border: 0px solid green;
+    background-color: white;
+}
+
+#tabsInnerDiv{
+    margin: 0 auto;
+}
+.tabsDiv {
+    position: relative;
+}
+
+.tabsDiv .center-wrapper {
+    position: absolute;
+    left: 50%;
+}
+
+.tabsDiv .center-wrapper .center-content {
+    position: relative;
+    left: -50%;
+}
+.divider{
+    width:5px;
+    height:auto;
+    display:inline-block;
+}
+
+
+/*Hightlight Report Grid row*/
+.red-row  {
+    background-color: #ffe2e2;
+    color: #900;
+}
+
+.green-row  {
+    background-color: #e2ffe2;
+    color: #090;
+}
+.yellow-row  {
+    background-color: #fbf8b2;
+    color: #ff9600;
+}
+.red-bold-row  {
+    background-color: #ffe2e2;
+    color: #900;
+    font-weight: bold;
+}
+
+.green-bold-row  {
+    background-color: #e2ffe2;
+    color: #090;
+    font-weight: bold;
+}
+.yellow-bold-row  {
+    background-color: #fbf8b2;
+    color: #ff9600;
+    font-weight: bold;
+}
+.bold-row {
+    font-weight: bold;
+}
+/*Hightlight Report Grid Row ends*/
+ .red-row {
+    background-color: #ffe2e2;
+    color: #900;
+}
+ .green-row {
+    background-color: #e2ffe2;
+    color: #090;
+}
+ .yellow-row {
+    background-color: #fbf8b2;
+    color: #ff9600;
+}
+ .red-bold-row {
+    background-color: #ffe2e2;
+    color: #900;
+    font-weight: bold;
+}
+ .green-bold-row {
+    background-color: #e2ffe2;
+    color: #090;
+    font-weight: bold;
+}
+ .yellow-bold-row {
+    background-color: #fbf8b2;
+    color: #ff9600;
+    font-weight: bold;
+}
+ .bold-row {
+    font-weight: bold;
+}
+.col-hidden{
+	display: none;
+}
+ /*chart full screen*/
+.chartFullScreen{
+    width: 1000px;
+    height: 800px;
+    margin: 0;
+    padding: 0;
+}
+
+/**Data Point*/
+.dp1{
+	background:#66B92F;
+}
+.dp2{
+	background:#E67E22;
+}.dp3{
+	background:#F47564;
+}.dp4{
+	background:#337ab7;
+}.dp5{
+	background:#d9534f;
+}.dp6{
+	background:#F0D65E;
+}.dp7{
+	background:#cc99ff;
+}.dp8{
+	background:#57BCD9;
+}
+.dp9{
+	background:#006600;
+}
+.dp10{
+	background:#FF4AFF;
+}
+

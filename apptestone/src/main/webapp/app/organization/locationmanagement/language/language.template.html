@@ -1,0 +1,40 @@
+<div class="container-fluid" id="Language25">
+        <div class="card" id="Card650" style="background-color: #fefefe;" >
+    <div class="card-header primary-color white-text" >
+    Language
+    </div>
+    <div class="card-block" >
+            <form id="Form936" >
+            <div class="row" id="Row164" style="background-color: #fefefe;" >
+            <text-input [(ngModel)]="languageModel.language" name="languageModel.language" [widgetConfig]="language" [label]="'Language'" [column]="'6'" ></text-input>
+            <text-input [(ngModel)]="languageModel.languageType" name="languageModel.languageType" [widgetConfig]="languageType" [label]="'Language Type'" [column]="'6'" ></text-input>
+    </div>
+            <div class="row" id="Row893" style="background-color: #fefefe;" >
+            <textarea-input [(ngModel)]="languageModel.languageDescription" name="languageModel.languageDescription" [widgetConfig]="languageDescription" [label]="'Description'" [column]="'6'" ></textarea-input>
+            <text-input [(ngModel)]="languageModel.languageIcon" name="languageModel.languageIcon" [widgetConfig]="languageIcon" [label]="'Icon'" [column]="'6'" ></text-input>
+    </div>
+            <div class="row" id="Row846" style="background-color: #fefefe;" >
+            <text-input [(ngModel)]="languageModel.alpha2" name="languageModel.alpha2" [widgetConfig]="alpha2" [label]="'Alpha 2'" [column]="'6'" ></text-input>
+            <text-input [(ngModel)]="languageModel.alpha3" name="languageModel.alpha3" [widgetConfig]="alpha3" [label]="'Alpha 3'" [column]="'6'" ></text-input>
+    </div>
+            <div class="row" id="Row570" style="background-color: #fefefe;" >
+            <text-input [(ngModel)]="languageModel.alpha4" name="languageModel.alpha4" [widgetConfig]="alpha4" [label]="'Alpha 4'" [column]="'6'" ></text-input>
+            <number-input [(ngModel)]="languageModel.alpha4parentid" name="languageModel.alpha4parentid" [widgetConfig]="alpha4parentid" [label]="'Aplha4 Parent Id'" [column]="'6'" ></number-input>
+    </div>
+            <div class="row" id="Row328" style="background-color: #fefefe;" >
+            <hidden-input [(ngModel)]="languageModel.languageId" name="languageModel.languageId" [column]="'6'" ></hidden-input>
+            <hidden-input [(ngModel)]="languageModel.versionId" name="languageModel.versionId" [column]="'6'" ></hidden-input>
+    </div>
+            <div class="row" id="Row109" style="float: right;" >
+            <simple-button [widgetConfig]="save" [label]="'Save'" [column]="'3'" [buttonSize]="'btn-lg'" [buttonStyle]="'primary'" (onClick)="onSaveClick()" ></simple-button>
+            <simple-button [widgetConfig]="update" [label]="'Update'" [column]="'3'" [buttonSize]="'btn-lg'" [buttonStyle]="'primary'" (onClick)="onUpdateClick()" ></simple-button>
+            <simple-button [widgetConfig]="reset" [label]="'Reset'" [column]="'3'" [buttonSize]="'btn-lg'" [buttonStyle]="'primary'" (onClick)="onResetClick()" ></simple-button>
+    </div>
+            <div class="row" id="Row326" >
+            <data-grid [widgetConfig]="languageGrid" [title]="'Language List'" [column]="'12'" [clientSidePaging]="true" [pageSize]="50" [serviceurl] = "'secure/Language/findAll'" [methodType] = "'get'"  (rowData)="onLanguageGridRowClick($event)" [localdata]="languageGridData" >
+    </data-grid>
+    </div>
+    </form>
+    </div>
+    </div>
+</div>

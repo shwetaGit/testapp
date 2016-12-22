@@ -1,0 +1,31 @@
+<div class="container-fluid" id="ContactType740">
+        <div class="card" id="Card166" style="background-color: #fefefe;" >
+    <div class="card-header primary-color white-text" >
+    ContactType
+    </div>
+    <div class="card-block" >
+            <form id="Form254" >
+            <div class="row" id="Row741" style="background-color: #fefefe;" >
+            <text-input [(ngModel)]="contactTypeModel.contactType" name="contactTypeModel.contactType" [widgetConfig]="contactType" [label]="'Contact Type'" [column]="'6'" ></text-input>
+            <textarea-input [(ngModel)]="contactTypeModel.contactTypeDesc" name="contactTypeModel.contactTypeDesc" [widgetConfig]="contactTypeDesc" [label]="'Contact Type Description'" [column]="'6'" ></textarea-input>
+    </div>
+            <div class="row" id="Row749" style="background-color: #fefefe;" >
+            <text-input [(ngModel)]="contactTypeModel.contactTypeIcon" name="contactTypeModel.contactTypeIcon" [widgetConfig]="contactTypeIcon" [label]="'Contact Type Icon'" [column]="'6'" ></text-input>
+    </div>
+            <div class="row" id="Row831" style="background-color: #fefefe;" >
+            <hidden-input [(ngModel)]="contactTypeModel.contactTypeId" name="contactTypeModel.contactTypeId" [column]="'6'" ></hidden-input>
+            <hidden-input [(ngModel)]="contactTypeModel.versionId" name="contactTypeModel.versionId" [column]="'6'" ></hidden-input>
+    </div>
+            <div class="row" id="Row110" style="float: right;" >
+            <simple-button [widgetConfig]="save" [label]="'Save'" [column]="'3'" [buttonSize]="'btn-lg'" [buttonStyle]="'primary'" (onClick)="onSaveClick()" ></simple-button>
+            <simple-button [widgetConfig]="update" [label]="'Update'" [column]="'3'" [buttonSize]="'btn-lg'" [buttonStyle]="'primary'" (onClick)="onUpdateClick()" ></simple-button>
+            <simple-button [widgetConfig]="reset" [label]="'Reset'" [column]="'3'" [buttonSize]="'btn-lg'" [buttonStyle]="'primary'" (onClick)="onResetClick()" ></simple-button>
+    </div>
+            <div class="row" id="Row653" >
+            <data-grid [widgetConfig]="contactTypeGrid" [title]="'Contact Type List'" [column]="'12'" [clientSidePaging]="true" [pageSize]="50" [serviceurl] = "'secure/ContactType/findAll'" [methodType] = "'get'"  (rowData)="onContactTypeGridRowClick($event)" [localdata]="contactTypeGridData" >
+    </data-grid>
+    </div>
+    </form>
+    </div>
+    </div>
+</div>
