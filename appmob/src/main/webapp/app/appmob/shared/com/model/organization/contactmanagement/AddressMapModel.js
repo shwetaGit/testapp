@@ -1,0 +1,35 @@
+Ext.define('Appmob.appmob.shared.com.model.organization.contactmanagement.AddressMapModel', {
+     "extend": "Ext.data.Model",
+     "fields": [{
+          "name": "primaryKey",
+          "type": "auto",
+          "defaultValue": ""
+     }, {
+          "name": "addMapId",
+          "type": "int",
+          "defaultValue": ""
+     }, {
+          "name": "contactid",
+          "reference": "CoreContacts",
+          "defaultValue": ""
+     }, {
+          "name": "coreContactsCoreContactsName",
+          "type": "auto",
+          "defaultValue": ""
+     }, {
+          "name": "addressid",
+          "reference": "Address",
+          "defaultValue": ""
+     }, {
+          "name": "addressAddressName",
+          "type": "auto",
+          "defaultValue": ""
+     }, {
+          "name": "entityAudit",
+          "reference": "EntityAudit"
+     }, {
+          "name": "primaryDisplay",
+          "type": "string",
+          "defaultValue": ""
+     }]
+});

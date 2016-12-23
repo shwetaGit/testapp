@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AppLogConfig version="1" reLoad="true">
+	<LoggingProperties>
+	<!-- 
+		File Refresh Time ============================================================= 
+		Refresh Time to reload this configuration file In a production environment,  
+		if you want to debug a specific component you can change the Alarm Log Levels 
+		(for specific Target like File, DB etc) of that specific components. Once 
+		the configuration is refreshed new Log Events will be written to the configured 
+		Target (File, DB etc). This will help to isolate and troubleshoot a production 
+		environment without shutting down the application. 
+		=============================================================================== 
+	-->
+		<refresh enableScheduler="true" timeUnit="Minutes" delay="5" />
+	<!-- 
+		Event Queue ==================================================================== 
+		Logging Framework is Asynchronous in nature. Log Events goes to the 
+		Queue first and connectors takes the event from the queue for processing. 
+
+		Event Queue Type 
+			0 - Circular Queue (RECOMMENDED) 
+			1 - Infinite Queue with Initial Capacity and events will be wrapped in 
+			    Soft References (JVM willgarbage collect these soft references when
+			    it runs out of memory). 
+			2 - Infinite Queue (NOT RECOMMENDED).  
+		================================================================================ 
+	-->
+		<eventQueueType value="0" />
+		<eventQueueSize value="100000" />
+	<!-- 
+		Event Severity =================================================== 
+		Event Severity represents the state of the Event respective to 
+		that specific part of the App and End-Users interaction with App.
+		================================================================== 
+	-->
+		<eventSeverity>
+			<map>
+				<property UUID="B407E9B5-F011-49F9-AFC1-EC5FEE614703" id="0">Trace</property>
+				<property UUID="F481FDBC-5874-4051-AAEF-15668055CC1E" id="1">Debug</property>
+				<property UUID="A039D6E7-9450-48F4-9A60-8B430774D4C9" id="2">Info</property>
+				<property UUID="FE0AED51-6562-4987-BB89-D18077AFF2FA" id="3">Warning</property>
+				<property UUID="00D64B72-B3D4-486A-A118-11A631E4478B" id="4">Critical</property>
+				<property UUID="BF14FE4C-3FA4-4D28-B090-2E7286316E0D" id="5">Fatal</property>
+			</map>
+		</eventSeverity>
+	</LoggingProperties>
+	<!-- 
+		Connectors ============================================================= 
+		Connectors represents various data channels for Logging.  
+		Spartan Pluggable provides built-in connectors like 
+
+			1. Built-In Standard Out Connector 
+			2. Built-In Standard File Connector 
+			3. Pluggable Spartan Sprinkler supports DB, File, Syslog, TCP 
+			4. Pluggable External Connectors like Log4J 2, LogBack etc 
+
+		Connector Properties for different connector types are given 
+		under connector tags. Properties like database, file roll over 
+		for File Connector etc. 
+		======================================================================== 
+	-->
+	<connectors>
+	<!-- 
+		Pluggable Connectors =========================================== 
+		Pluggable Connectors are used to Load 3rd Party Connectors   
+		Like LogBack, Log4J 2 and Sprinkler (Default) and Standard Out 
+		================================================================ 
+	-->
+		<pluggableConnectors>
+			<fallBackLogLevel>3</fallBackLogLevel>
+			<pluggableConnector enable="true" fallBack="true" >
+				<pluggableConnector.name>StandardOutputConnector</pluggableConnector.name>
+				<pluggableConnector.className>com.spartan.pluggable.logger.api.StandardOutputConnector</pluggableConnector.className>
+				<map>
+					<pluggable.connector.property name="name">value</pluggable.connector.property>
+				</map>
+			</pluggableConnector>
+			<pluggableConnector enable="true" >
+				<pluggableConnector.name>StandardFileConnector</pluggableConnector.name>
+				<pluggableConnector.className>com.spartan.pluggable.logger.api.StandardFileConnector</pluggableConnector.className>
+				<map>
+					<pluggable.connector.property name="logLevel">3</pluggable.connector.property>
+					<pluggable.connector.property name="output.path">/home/applifire/workspace/</pluggable.connector.property>
+				</map>
+			</pluggableConnector>
+			<pluggableConnector enable="true" isDefault="true">
+				<pluggableConnector.name>Sprinkler</pluggableConnector.name>
+				<pluggableConnector.className>com.spartan.logger.core.LogMessenger</pluggableConnector.className>
+				<map>
+				</map>
+			</pluggableConnector>
+		</pluggableConnectors>
+		<connector cid="1" logLevel="4"> 
+			<connector.name enable="true" isSystemDefined="true" id="file.connector" 
+			class="com.spartan.logger.connectors.file.FileConnector">FileConnector</connector.name>
+			<map>
+				<attribute name="output.path">/home/applifire/workspace/logs</attribute>
+				<!--  Backup Properties -->
+				<attribute name="backup.path">/home/applifire/workspace/logs/backup</attribute>
+				<attribute name="backup.date.pattern">yyyyMMddHHmmss</attribute>
+				<attribute name="file.name">ABCD</attribute>
+				<!-- Keep Latest X number of Backup Files. 
+				Valid values = Greater than ZERO or MINUS 1 
+				If you want to keep all the files then give -1 -->
+				<attribute name="backup.keep.last.x.files">2</attribute>
+				<!-- File Roll Over Time Unit Valid values (Hours, Days, Months) -->
+				<attribute name="file.rollover.time.unit">Hours</attribute>
+				<!-- File Roll Over Policy 
+				0 - Based on Time ONLY 
+				1 - Based on Size ONLY 
+				2 - Based on Time or Size, which ever happens first. -->
+				<attribute name="file.rollover.policy">0</attribute>
+				<!-- File Roll Over based on File Size. --> 
+				<attribute name="file.rollover.size">100</attribute>
+				<!-- File Roll Over Size Unit. Valid Values (MB, GB) -->  
+				<attribute name="file.rollover.size.unit">MB</attribute>
+				<!-- File Roll Over based on Time -->
+				<attribute name="file.rollover.time">1</attribute>
+				<!-- Buffer size in KB -->
+				<attribute name="buffer.size">1</attribute>
+				<!-- Flush time in seconds -->
+				<attribute name="flush.period">60</attribute>
+			</map>
+		</connector>
+		<connector cid="2" logLevel="5"> 
+			<connector.name enable="false" isSystemDefined="true" id="db.connector" 
+			class="com.spartan.logger.connectors.db.DBConnector">DatabaseConnector</connector.name>
+			<map>
+				<!-- JDBC Connection Details -->
+				<attribute name="database.url">jdbc:mysql://localhost-MYSQL:3306/appmob</attribute>
+				<attribute name="user.name">appmob</attribute>
+				<attribute name="driver.name">com.mysql.jdbc.Driver</attribute>
+				<attribute name="password">appmob</attribute>
+				<attribute name="table.name">art_log_events_t</attribute>
+				<!-- Batch will be commited if Time Out happens before the batch size reached. -->
+				<attribute name="batch.size">20</attribute>
+				<attribute name="thread.timeout">5000</attribute>
+				<!-- JDBC Connection Pool Size -->
+				<attribute name="thread.pool.size">5</attribute>
+			</map>
+		</connector>
+		<connector cid="3" logLevel="3"> 
+			<connector.name enable="false" isSystemDefined="false" id="socket.udp.syslog" 
+			class="com.spartan.logger.connectors.syslog.SyslogConnector">SyslogConnector</connector.name>
+			<map>
+				<!-- Syslog Receiver IP Address -->
+				<attribute name="syslog.hostname">192.168.2.28</attribute>
+				<!-- Syslog Receiver Port Number -->
+				<attribute name="syslog.port">5001</attribute>
+			</map>
+		</connector>
+		<connector cid="4" logLevel="3"> 
+			<connector.name enable="false" isSystemDefined="false" id="socket.tcp.server" 
+			class="com.spartan.logger.connectors.socket.SocketConnector">TCPSocketConnector</connector.name>
+			<map>
+				<!-- Server IP Address / Host Name -->
+				<attribute name="tcp.hostname">192.168.2.40</attribute>
+				<!-- Server Port Number -->
+				<attribute name="tcp.port">4444</attribute>
+			</map>
+		</connector>
+	</connectors>
+</AppLogConfig>

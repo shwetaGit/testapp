@@ -1,0 +1,1085 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+	== com.spartan.pluggable.logger.api.* ==
+
+	Application Alarm Configurations are based on Domain Driven Design
+	Alarms are configured as per Bounded Context and Domain wise
+
+	Bounded Context
+		Domains
+			Alarms are classified into the following App Architecture Layers
+
+			1 = WEB SERIVCE
+			2 = DOMAIN SERVICE
+			3 = DATABASE SERVICE
+			4 = EXTERNAL SERVICE
+			5 = EVENT BUS
+			6 = ANALYTICS SERVICE
+			7 = SCHEDULER SERVICE
+
+	Every Alarm has the following properties
+
+		Alarm ID (Unique ID) : Combination fields from Below. From Bounded Context to Event Action.
+		==
+		Bounded Context ID
+		Domain ID
+		Alarm Layer (Web Service, Domain Service, Database Service etc)
+		Alarm Severity (Trace, Debug, Info, Warning, Critical, Fatal)
+		Alarm Context
+		Alarm Status (Based on HTTP Status Codes)
+		Event Action (Based on Unix File System Permissions)
+
+		Message
+		Diagnosis
+		Solution
+
+	For Every Alarm you can define the Alarm Log properties for various Log Connectors like Database, 
+	File, Syslog, Splunk etc
+
+	Alarm Severity represents the state of the Alarm respective to that specific part of the App.
+
+		0 = Trace
+		1 = Debug
+		2 = Info
+		3 = Warning
+		4 = Critical
+		5 = Fatal
+	
+	Alarm Status Code is classified based on HTTP Status Codes 
+
+		1xx = Informational
+		2xx = Success
+		4xx = Client Error
+		5xx = Server Error
+
+	https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
+
+	Event Action which Triggered this Alarm : Based on Unix File Permissions
+
+		1 = UPDATE
+		2 = WRITE
+		3 = WRITE & UPDATE
+		4 = READ
+		5 = READ, UPDATE
+		6 = READ, WRITE
+		7 = READ, WRITE & UPDATE
+		8 = DELETE
+
+	Alarm Log Priority is based on every connector. A Severity 1 Alarm can have log Priority of 5 for 
+	File Connector and Log Priority of 1 for Database Connector. Which means even though the Alarm 
+	Severity is low it should be logged into File and not into the Database.
+
+	This gives a very granular control on switching on an Alarm for a specific Bounded Context
+	or a Domain in App Runtime without disturbing the App or losing the App State and without
+	incurring performance penalties.
+
+	System Automatically Generates a Unique Alarm ID which contains the following
+	BoundedContextID, Domain ID, App Layer, Severity, Alarm Context, Status
+
+	Eg. SHPPR456107402 : It Says web Service Call failed in the Shopping Context Product Search with Severity 5
+
+		SHP = Bounded Context ID : Shopping Module
+		PR  = Domain ID : Product Catalogue
+		4   = App Layer - Web Service
+		5   = Alarm Severity (Critical)
+		6   = Event Action (Read, Write)
+		107 = Alarm Context
+		402 = Status Code : HTTP Status Code
+	====================================================================== 
+-->
+<AppAlarms version="1" reLoad="true">
+	<!-- 
+		================================================================ 
+		File ReLoad Parameters 
+		Time Unit = Days, Hours, Minutes, Seconds 
+		Delay = 1, 2, 10, 30, 60 etc 
+		If Time Unit is Minutes and Delay is 30, then the file 
+		will be refreshed every half an hour.
+		================================================================ 
+	-->
+	<appAlarm.refresh timeUnit="Minutes" delay="30" />
+	<!-- 
+		Auto Generated Alarms from Framework Template ........................ 
+		Only following Parameters of an Alarm CAN be changed 
+		in the Application running in the Production Mode. 
+
+		Enable Domain Trace          : Will enable All the Alarms to 
+		                               to printed in the Highest debug level
+		Alarm Connector Log Priority : For Database, File, Syslog, TCP etc.. 
+		Message, Diagnosis, Solution : Donot change the parameters of the
+		                               of the Message.
+		...................................................................... 
+	-->
+	<BoundedContext name="testdomain"  id="TDN" contextType="-1">
+		<!-- applifire -->
+		<Domain name="applifire" id="TA" trace="no" criticality="2"  connectorLogPriorities="4, 5, -1, -1">
+			<AppAlarm id="TDNTA224800100"  context="800" severity="2"
+				connectorLogPriorities="4, 5, -1, -1" contextType="-1">
+				<layer>2</layer>
+				<message>%s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>100</status>
+				<eventAction>4</eventAction>
+				<exceptionClass></exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA111100100"  context="100" severity="1"
+				connectorLogPriorities="4, 5, -1, -1" contextType="-1">
+				<layer>1</layer>
+				<message>Web Service Call for save initiated : %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>100</status>
+				<eventAction>1</eventAction>
+				<exceptionClass></exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA112100100"  context="100" severity="1"
+				connectorLogPriorities="4, 5, -1, -1" contextType="-1">
+				<layer>1</layer>
+				<message>Web Service Call for update initiated : %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>100</status>
+				<eventAction>2</eventAction>
+				<exceptionClass></exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA114100100"  context="100" severity="1"
+				connectorLogPriorities="4, 5, -1, -1" contextType="-1">
+				<layer>1</layer>
+				<message>Web Service Call for fetch initiated : %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>100</status>
+				<eventAction>4</eventAction>
+				<exceptionClass></exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA118100100"  context="100" severity="1"
+				connectorLogPriorities="4, 5, -1, -1" contextType="-1">
+				<layer>1</layer>
+				<message>Web Service Call for delete initiated : %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>100</status>
+				<eventAction>8</eventAction>
+				<exceptionClass></exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA124100100"  context="100" severity="2"
+				connectorLogPriorities="4, 5, -1, -1" contextType="-1">
+				<layer>1</layer>
+				<message>Web Service Call completed : %s Time Taken = %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>100</status>
+				<eventAction>4</eventAction>
+				<exceptionClass></exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA154101500"  context="101" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>1</layer>
+				<message>Web Service Call Request Failed : Reason = %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>500</status>
+				<eventAction>4</eventAction>
+				<exceptionClass></exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA124100200"  context="100" severity="2"
+				connectorLogPriorities="4, 5, -1, -1" contextType="-1">
+				<layer>1</layer>
+				<message>Web Service Status: Fetch Request Succeeded: %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>200</status>
+				<eventAction>4</eventAction>
+				<exceptionClass></exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA124100201"  context="100" severity="2"
+				connectorLogPriorities="4, 5, -1, -1" contextType="-1">
+				<layer>1</layer>
+				<message>Web Service Call Status: Success! New Resource created. Class Name=%s | Method Name=%s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>201</status>
+				<eventAction>4</eventAction>
+				<exceptionClass></exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA124100202"  context="100" severity="2"
+				connectorLogPriorities="4, 5, -1, -1" contextType="-1">
+				<layer>1</layer>
+				<message>Web Service Call Status: Success! Request accepted for processing. Class Name=% | Method Name=%s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>202</status>
+				<eventAction>4</eventAction>
+				<exceptionClass></exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA124100204"  context="100" severity="2"
+				connectorLogPriorities="4, 5, -1, -1" contextType="-1">
+				<layer>1</layer>
+				<message>Web Service Call Status: Success! Request processed successfully. No content to return. Class Name=% | Method Name=%s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>204</status>
+				<eventAction>4</eventAction>
+				<exceptionClass></exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA122100201"  context="100" severity="2"
+				connectorLogPriorities="4, 5, -1, -1" contextType="-1">
+				<layer>1</layer>
+				<message>Web Service Status: Add Request Succeeded: %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>201</status>
+				<eventAction>2</eventAction>
+				<exceptionClass></exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA123100200"  context="100" severity="2"
+				connectorLogPriorities="4, 5, -1, -1" contextType="-1">
+				<layer>1</layer>
+				<message>Web Service Status: Update Request Succeeded: %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>200</status>
+				<eventAction>3</eventAction>
+				<exceptionClass></exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA128100200"  context="100" severity="2"
+				connectorLogPriorities="4, 5, -1, -1" contextType="-1">
+				<layer>1</layer>
+				<message>Web Service Status: Delete Request Succeeded: %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>200</status>
+				<eventAction>8</eventAction>
+				<exceptionClass></exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA128100500"  context="100" severity="2"
+				connectorLogPriorities="4, 5, -1, -1" contextType="-1">
+				<layer>1</layer>
+				<message>Web Service Status: Delete Request Succeeded: %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>500</status>
+				<eventAction>8</eventAction>
+				<exceptionClass></exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA154101400"  context="101" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>1</layer>
+				<message>Web Service Call Status: Failed due to bad request. Reason=%s</message>
+				<diag>A runtime exception indicating a bad client request.</diag>
+				<solution></solution>
+				<status>400</status>
+				<eventAction>4</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.ws.WebServiceBadRequestException</exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA157101400"  context="101" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>1</layer>
+				<message>Web Service Call Status: Failed due to Data Validation. Reason=%s</message>
+				<diag>A Data Validation indicating a bad client request.</diag>
+				<solution></solution>
+				<status>400</status>
+				<eventAction>7</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.security.InvalidDataException</exceptionClass>
+				<rootException>java.lang.SecurityException</rootException>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA154101401"  context="101" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>1</layer>
+				<message>Web Service Call Status: Failed due to bad user credentials. Reason=%s</message>
+				<diag>Access denied due to bad login id or password.</diag>
+				<solution>Check if the Caps lock is on in your keyboard and usage of Upper Case and Lower Case letter in
+				login credentials.</solution>
+				<status>401</status>
+				<eventAction>4</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.auth.AccessDeniedException</exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA124101402"  context="101" severity="2"
+				connectorLogPriorities="4, 5, -1, -1" contextType="-1">
+				<layer>1</layer>
+				<message>Web Service Call Status: Failed! Payment Required. Status=%s</message>
+				<diag>This is a paid service. Your payment process failed to complete the request.</diag>
+				<solution></solution>
+				<status>402</status>
+				<eventAction>4</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.ws.WebServicePaymentRequiredException</exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA154101403"  context="101" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>1</layer>
+				<message>Web Service Call Status: Failed due to unauthorized resource. Reason=%s</message>
+				<diag>A runtime exception indicating that an access to a resource requested by a client has been forbidden by the server.</diag>
+				<solution></solution>
+				<status>403</status>
+				<eventAction>4</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.auth.AuthorizationException</exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA154102405"  context="102" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>1</layer>
+				<message>Web Service Call Status: Failed! Method not allowed.  %s</message>
+				<diag>A runtime exception indicating a resource requested by a client was not found on the server.</diag>
+				<solution></solution>
+				<status>405</status>
+				<eventAction>4</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.ws.WebServiceMethodNotFoundException</exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA154102429"  context="102" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>1</layer>
+				<message>Web Service Call Status: Failed! Too many requests. %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>429</status>
+				<eventAction>4</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.ws.WebServiceTooManyRequestsException</exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA154103405"  context="103" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>1</layer>
+				<message>Web Service Call Status: Failed! Invalid Protocol.  %s</message>
+				<diag>A runtime exception indicating a resource requested by a client using an Invalid Protocol.</diag>
+				<solution></solution>
+				<status>405</status>
+				<eventAction>4</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.ws.WebServiceInvalidProtocolException</exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA217100100"  context="100" severity="1"
+				connectorLogPriorities="4, 5, -1, -1" contextType="-1">
+				<layer>2</layer>
+				<message>Domain Service Call initiated : %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>100</status>
+				<eventAction>7</eventAction>
+				<exceptionClass></exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA227100100"  context="100" severity="2"
+				connectorLogPriorities="4, 5, -1, -1" contextType="-1">
+				<layer>2</layer>
+				<message>Domain Service Call completed : %s Time Taken = %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>100</status>
+				<eventAction>7</eventAction>
+				<exceptionClass></exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA247100200"  context="100" severity="4"
+				connectorLogPriorities="4, 5, -1, -1" contextType="-1">
+				<layer>2</layer>
+				<message>Domain Service Call Success! : Class Name=%s | Method Name=%s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>200</status>
+				<eventAction>7</eventAction>
+				<exceptionClass></exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA227100202"  context="100" severity="2"
+				connectorLogPriorities="4, 5, -1, -1" contextType="-1">
+				<layer>2</layer>
+				<message>Domain Service Call: Request accepted for processing..</message>
+				<diag></diag>
+				<solution></solution>
+				<status>202</status>
+				<eventAction>7</eventAction>
+				<exceptionClass></exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA257101400"  context="101" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>2</layer>
+				<message>Domain Service Call Failed! Bad Request = %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>400</status>
+				<eventAction>7</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.ds.BusinessRulePreConditionException</exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA257101500"  context="101" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>2</layer>
+				<message>Domain Service Call Failed! Internal Server Error = %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>500</status>
+				<eventAction>7</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.ds.BusinessRuleInternalError</exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA257101503"  context="101" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>2</layer>
+				<message>Domain Service Call Failed! Service unavailable = %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>503</status>
+				<eventAction>7</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.ds.BusinessRuleNotFoundException</exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA257101502"  context="101" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>2</layer>
+				<message>Domain Service Call Failed! Business Process failure = %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>502</status>
+				<eventAction>7</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.ds.BusinessRuleFailedException</exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA257102500"  context="102" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>2</layer>
+				<message>Domain Service Call Failed! Business Process Interrupted = %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>500</status>
+				<eventAction>7</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.ds.BusinessRuleInterruptedException</exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA257103500"  context="103" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>2</layer>
+				<message>Domain Service Call Failed! Business Process Unable to proceed = %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>500</status>
+				<eventAction>7</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.ds.BusinessRuleUnableToProceedException</exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA257120500"  context="120" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>2</layer>
+				<message>Domain Service:  Business Aspect Failed = %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>500</status>
+				<eventAction>7</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.ds.BusinessAspectFailedException</exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA257130500"  context="130" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>2</layer>
+				<message>Domain Service: Batch Process Failed = %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>500</status>
+				<eventAction>7</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.ds.BatchProcessFailedException</exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA257131500"  context="131" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>2</layer>
+				<message>Domain Service: Batch Process Interrupted = %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>500</status>
+				<eventAction>7</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.ds.BatchProcessInterruptedException</exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA257132500"  context="132" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>2</layer>
+				<message>Domain Service: Batch Process Not Found = %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>500</status>
+				<eventAction>7</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.ds.BatchProcessNotFoundException</exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA257140500"  context="140" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>2</layer>
+				<message>Domain Service: Notification Connection Error = %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>500</status>
+				<eventAction>7</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.ds.NotificationConnectionException</exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA257141500"  context="141" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>2</layer>
+				<message>Domain Service: Notification Failed! Reason = %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>500</status>
+				<eventAction>7</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.ds.NotificationFailedException</exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA257142500"  context="142" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>2</layer>
+				<message>Domain Service: Notification Not Found! = %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>500</status>
+				<eventAction>7</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.ds.NotificationNotFoundException</exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA257143500"  context="143" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>2</layer>
+				<message>Domain Service: Notification Template Error! = %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>500</status>
+				<eventAction>7</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.ds.NotificationTemplateException</exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA257144500"  context="144" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>2</layer>
+				<message>Domain Service: Session Data Not Found Exception Error! = %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>500</status>
+				<eventAction>7</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.ds.SessionDataNotFoundException</exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA311100100"  context="100" severity="1"
+				connectorLogPriorities="4, 5, -1, -1" contextType="-1">
+				<layer>3</layer>
+				<message>Repository Service Call for save initiated : %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>100</status>
+				<eventAction>1</eventAction>
+				<exceptionClass></exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA312100100"  context="100" severity="1"
+				connectorLogPriorities="4, 5, -1, -1" contextType="-1">
+				<layer>3</layer>
+				<message>Repository Service Call for update initiated : %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>100</status>
+				<eventAction>2</eventAction>
+				<exceptionClass></exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA318100100"  context="100" severity="1"
+				connectorLogPriorities="4, 5, -1, -1" contextType="-1">
+				<layer>3</layer>
+				<message>Repository Service Call for delete initiated : %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>100</status>
+				<eventAction>8</eventAction>
+				<exceptionClass></exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA314100100"  context="100" severity="1"
+				connectorLogPriorities="4, 5, -1, -1" contextType="-1">
+				<layer>3</layer>
+				<message>Repository Service Call for fetching  initiated : %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>100</status>
+				<eventAction>4</eventAction>
+				<exceptionClass></exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA317100100"  context="100" severity="1"
+				connectorLogPriorities="4, 5, -1, -1" contextType="-1">
+				<layer>3</layer>
+				<message>Repository Service Call completed : %s Time Taken = %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>100</status>
+				<eventAction>7</eventAction>
+				<exceptionClass></exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA357100200"  context="100" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>3</layer>
+				<message>Repository Service Call Success! : Class Name=%s | Method Name=%s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>200</status>
+				<eventAction>7</eventAction>
+				<exceptionClass></exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA322100200"  context="100" severity="2"
+				connectorLogPriorities="4, 5, -1, -1" contextType="-1">
+				<layer>3</layer>
+				<message>Repository Service Call for update  Succeeded: %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>200</status>
+				<eventAction>2</eventAction>
+				<exceptionClass></exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA328100200"  context="100" severity="2"
+				connectorLogPriorities="4, 5, -1, -1" contextType="-1">
+				<layer>3</layer>
+				<message>Repository Service Call for delete  Succeeded: %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>200</status>
+				<eventAction>8</eventAction>
+				<exceptionClass></exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA324100200"  context="100" severity="2"
+				connectorLogPriorities="4, 5, -1, -1" contextType="-1">
+				<layer>3</layer>
+				<message>Repository Service Call for fetch  Succeeded: %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>200</status>
+				<eventAction>4</eventAction>
+				<exceptionClass></exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA321100200"  context="100" severity="2"
+				connectorLogPriorities="4, 5, -1, -1" contextType="-1">
+				<layer>3</layer>
+				<message>Repository Service Call for save  Succeeded: %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>200</status>
+				<eventAction>1</eventAction>
+				<exceptionClass></exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA353101400"  context="101" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>3</layer>
+				<message>Repository Tx Exception: Entity Found! Reason=%s</message>
+				<diag>If the entity already exists, the EntityExistsException may be thrown when the persist operation is invoked, or the EntityExistsException or 
+				another PersistenceException may be thrown at flush or commit time.</diag>
+				<solution>Duplicate Entity Found. Check the Unique Keys</solution>
+				<status>400</status>
+				<eventAction>3</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.db.EntityExistsException</exceptionClass>
+				<rootException>javax.persistence.EntityExistsException</rootException>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA355102400"  context="102" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>3</layer>
+				<message>Repository Tx Exception: Entity Not Found! Reason=%s</message>
+				<diag>Entity Not Found. Either Primary Key is invalid or the Entity Active Status is set as false (marked as deleted).</diag>
+				<solution>Entity Not Found. Check if the Entity is marked as Deleted or the query condition to retrieve this entity.</solution>
+				<status>400</status>
+				<eventAction>5</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.db.EntityNotFoundException</exceptionClass>
+				<rootException>javax.persistence.EntityNotFoundException</rootException>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA355103500"  context="103" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>3</layer>
+				<message>Repository Tx Exception: Lock Timeout! Reason=%s</message>
+				<diag>Thrown by the persistence provider when an pessimistic locking conflict occurs that does not result in transaction rollback. This exception 
+				may be thrown as part of an API call, at, flush or at commit time. The current transaction, if one is active, will be not be marked for rollback.</diag>
+				<solution>Please try after some time.</solution>
+				<status>500</status>
+				<eventAction>5</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.db.LockTimeoutException</exceptionClass>
+				<rootException>javax.persistence.LockTimeoutException</rootException>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA355104400"  context="104" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>3</layer>
+				<message>Repository Tx Exception: Non Unique Result! Reason=%s</message>
+				<diag>Thrown by the persistence provider when Query.getSingleResult() or TypedQuery.getSingleResult() is executed on a query and there is more than one 
+				result from the query. This exception will not cause the current transaction, if one is active, to be marked for rollback.</diag>
+				<solution></solution>
+				<status>400</status>
+				<eventAction>5</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.db.NonUniqueResultException</exceptionClass>
+				<rootException>javax.persistence.NonUniqueResultException</rootException>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA355105400"  context="105" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>3</layer>
+				<message>Repository Tx Exception: No Result! Reason=%s</message>
+				<diag>Thrown by the persistence provider when Query.getSingleResult() or TypedQuery.getSingleResult()is executed on a query and there is no result to return. 
+				This exception will not cause the current transaction, if one is active, to be marked for rollback.</diag>
+				<solution>No Data Found. Check the Query Criteria.</solution>
+				<status>400</status>
+				<eventAction>5</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.db.NoResultException</exceptionClass>
+				<rootException>javax.persistence.NoResultException</rootException>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA355106500"  context="106" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>3</layer>
+				<message>Repository Tx Exception: Optimistic Lock! Reason=%s</message>
+				<diag>Thrown by the persistence provider when an optimistic locking conflict occurs. This exception may be thrown as part of an API call, a flush or at commit 
+				time. The current transaction, if one is active, will be marked for rollback.</diag>
+				<solution></solution>
+				<status>500</status>
+				<eventAction>5</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.db.OptimisticLockException</exceptionClass>
+				<rootException>javax.persistence.OptimisticLockException</rootException>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA355107500"  context="107" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>3</layer>
+				<message>Repository Tx Exception: Pessimistic Lock! Reason=%s</message>
+				<diag>Thrown by the persistence provider when an pessimistic locking conflict occurs. This exception may be thrown as part of an API call, a flush or at commit 
+				time. The current transaction, if one is active, will be marked for rollback.</diag>
+				<solution></solution>
+				<status>500</status>
+				<eventAction>5</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.db.PessimisticLockException</exceptionClass>
+				<rootException>javax.persistence.PessimisticLockException</rootException>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA355108500"  context="108" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>3</layer>
+				<message>Repository Tx Exception: Query Timeout! Reason=%s</message>
+				<diag>Thrown by the persistence provider when a query times out and only the statement is rolled back. The current transaction, if one is active, will be not 
+				be marked for rollback.</diag>
+				<solution></solution>
+				<status>500</status>
+				<eventAction>5</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.db.QueryTimeoutException</exceptionClass>
+				<rootException>javax.persistence.QueryTimeoutException</rootException>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA355109500"  context="109" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>3</layer>
+				<message>Repository Tx Exception: Rollback! Reason=%s</message>
+				<diag>Thrown by the persistence provider when commit() method call fails.</diag>
+				<solution></solution>
+				<status>500</status>
+				<eventAction>5</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.db.RollbackException</exceptionClass>
+				<rootException>javax.persistence.RollbackException</rootException>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA355110500"  context="110" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>3</layer>
+				<message>Repository Tx Exception: Transaction Required! Reason=%s</message>
+				<diag>Thrown by the persistence provider when a transaction is required but is not active.</diag>
+				<solution></solution>
+				<status>500</status>
+				<eventAction>5</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.db.TransactionRequiredException</exceptionClass>
+				<rootException>javax.persistence.TransactionRequiredException</rootException>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA357151400"  context="151" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>3</layer>
+				<message>Repository Service Call Data Validation Failed! Reason=%s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>400</status>
+				<eventAction>7</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.db.RepositoryDataValidationFailedException</exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA352151500"  context="151" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>3</layer>
+				<message>Repository Service Call Save Failed! Reason=%s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>500</status>
+				<eventAction>2</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.db.RepositoryWriteFailedException</exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA351151500"  context="151" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>3</layer>
+				<message>Repository Service Call Update Failed! Reason=%s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>500</status>
+				<eventAction>1</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.db.RepositoryUpdateFailedException</exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA358151500"  context="151" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>3</layer>
+				<message>Repository Service Call Delete Failed! Reason=%s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>500</status>
+				<eventAction>8</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.db.RepositoryDeleteFailedException</exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA354151500"  context="151" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>3</layer>
+				<message>Repository Service Call Delete Failed! Reason=%s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>500</status>
+				<eventAction>4</eventAction>
+				<exceptionClass>om.spartan.pluggable.exception.layers.db.RepositoryDeleteFailedException</exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA354190500"  context="190" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>3</layer>
+				<message>Data Source Connection Failed! Reason=%s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>500</status>
+				<eventAction>4</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.db.RepositoryDataSourceConnectionException</exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA417100200"  context="100" severity="1"
+				connectorLogPriorities="4, 5, -1, -1" contextType="-1">
+				<layer>4</layer>
+				<message>External Service Call initiated : %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>200</status>
+				<eventAction>7</eventAction>
+				<exceptionClass></exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA424100100"  context="100" severity="2"
+				connectorLogPriorities="4, 5, -1, -1" contextType="-1">
+				<layer>4</layer>
+				<message>External Service Call completed : %s Time Taken = %s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>100</status>
+				<eventAction>4</eventAction>
+				<exceptionClass></exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA424100200"  context="100" severity="2"
+				connectorLogPriorities="4, 5, -1, -1" contextType="-1">
+				<layer>4</layer>
+				<message>External Service Call Status: Success! Class Name=% | Method Name=%s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>200</status>
+				<eventAction>4</eventAction>
+				<exceptionClass></exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA427100200"  context="100" severity="2"
+				connectorLogPriorities="4, 5, -1, -1" contextType="-1">
+				<layer>4</layer>
+				<message>External Service Call Status: Success! Class Name=% | Method Name=%s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>200</status>
+				<eventAction>7</eventAction>
+				<exceptionClass></exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA454101400"  context="101" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>4</layer>
+				<message>External Service Call Status: Failed due to bad request. Reason=%s</message>
+				<diag>A runtime exception indicating a bad client request.</diag>
+				<solution></solution>
+				<status>400</status>
+				<eventAction>4</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.es.ExternalServiceConfigurationException</exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA454101401"  context="101" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>4</layer>
+				<message>External Service Call Status: Failed due to bad user credentials. Reason=%s</message>
+				<diag>Access denied due to bad login id or password.</diag>
+				<solution>Check if the Caps lock is on in your keyboard and usage of Upper Case and Lower Case letter in
+				login credentials.</solution>
+				<status>401</status>
+				<eventAction>4</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.es.ExternalServiceAuthenticationFailedException</exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA424101402"  context="101" severity="2"
+				connectorLogPriorities="4, 5, -1, -1" contextType="-1">
+				<layer>4</layer>
+				<message>External Service Call Status: Failed! Payment Required. Status=%s</message>
+				<diag>This is a paid service. Your payment process failed to complete the request.</diag>
+				<solution></solution>
+				<status>402</status>
+				<eventAction>4</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.es.ExternalServicePaymentRequiredException</exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA454101403"  context="101" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>4</layer>
+				<message>External Service Call Status: Failed due to unauthorized resource. Reason=%s</message>
+				<diag>A runtime exception indicating that an access to a resource requested by a client has been forbidden by the server.</diag>
+				<solution></solution>
+				<status>403</status>
+				<eventAction>4</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.es.ExternalServiceAuthorizationFailedException</exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA454102405"  context="102" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>4</layer>
+				<message>External Service Call Status: Failed! Method not allowed.  Reason=%s</message>
+				<diag>A runtime exception indicating a resource requested by a client was not found on the server.</diag>
+				<solution></solution>
+				<status>405</status>
+				<eventAction>4</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.es.ExternalServiceMethodNotAllowedException</exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA454102429"  context="102" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>4</layer>
+				<message>External Service Call Status: Failed! Too many requests. Reason=%s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>429</status>
+				<eventAction>4</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.es.ExternalServiceTooManyCallsException</exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA454103400"  context="103" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>4</layer>
+				<message>External Service Call Status: Failed! Invalid Input Params. Reason=%s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>400</status>
+				<eventAction>4</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.es.ExternalServiceInvalidInputParamsException</exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA454104400"  context="104" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>4</layer>
+				<message>External Service Call Status: Failed! Invalid Data returned. Reason=%s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>400</status>
+				<eventAction>4</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.es.ExternalServiceInvalidReturnTypeException</exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA454190500"  context="190" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>4</layer>
+				<message>External Service Connection Failed! Reason=%s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>500</status>
+				<eventAction>4</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.es.ExternalServiceCallFailedException</exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA454191400"  context="191" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>4</layer>
+				<message>External Service Call Status: Failed! Call Timed out. Reason=%s</message>
+				<diag></diag>
+				<solution></solution>
+				<status>400</status>
+				<eventAction>4</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.es.ExternalServiceTimeoutException</exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA454192502"  context="192" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>4</layer>
+				<message>External Service Connection Failed!</message>
+				<diag></diag>
+				<solution></solution>
+				<status>502</status>
+				<eventAction>4</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.es.ExternalServiceConnectionFailedException</exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA454193500"  context="193" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>4</layer>
+				<message>External Service No Result Found!</message>
+				<diag></diag>
+				<solution></solution>
+				<status>500</status>
+				<eventAction>4</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.es.ExternalServiceNoResultException</exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA454194502"  context="194" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>4</layer>
+				<message>RMI Service Method Not Found!</message>
+				<diag></diag>
+				<solution></solution>
+				<status>502</status>
+				<eventAction>4</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.es.ExternalServiceRMIMethodNotFoundException</exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+			<AppAlarm id="TDNTA454195502"  context="195" severity="5"
+				connectorLogPriorities="5, 5, -1, -1" contextType="-1">
+				<layer>4</layer>
+				<message>RMI Service Method Not Supported, No matching Input Parameters!</message>
+				<diag></diag>
+				<solution></solution>
+				<status>502</status>
+				<eventAction>4</eventAction>
+				<exceptionClass>com.spartan.pluggable.exception.layers.es.ExternalServiceRMIMethodNotSupportedException</exceptionClass>
+				<alarmPlacement>0</alarmPlacement>
+			</AppAlarm>
+		</Domain>
+	</BoundedContext>
+</AppAlarms>
+

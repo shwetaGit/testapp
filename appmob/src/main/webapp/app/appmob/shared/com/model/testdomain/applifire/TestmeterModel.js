@@ -1,0 +1,39 @@
+Ext.define('Appmob.appmob.shared.com.model.testdomain.applifire.TestmeterModel', {
+     "extend": "Ext.data.Model",
+     "fields": [{
+          "name": "primaryKey",
+          "type": "auto",
+          "defaultValue": ""
+     }, {
+          "name": "metercode",
+          "type": "string",
+          "defaultValue": ""
+     }, {
+          "name": "meterArea",
+          "type": "string",
+          "defaultValue": ""
+     }, {
+          "name": "metertype",
+          "type": "string",
+          "defaultValue": ""
+     }, {
+          "name": "vendor",
+          "type": "string",
+          "defaultValue": ""
+     }, {
+          "name": "price",
+          "type": "number",
+          "defaultValue": ""
+     }, {
+          "name": "versionId",
+          "type": "int",
+          "defaultValue": ""
+     }, {
+          "name": "entityAudit",
+          "reference": "EntityAudit"
+     }, {
+          "name": "primaryDisplay",
+          "type": "string",
+          "defaultValue": ""
+     }]
+});

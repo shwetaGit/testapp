@@ -1,0 +1,246 @@
+/* Datapoint Styling */
+.kpi-main .kpi-tiles {
+	margin-bottom: 0px
+}
+
+.kpi-main .kpi-meta {
+	background-color: white;
+}
+
+.kpi-main .kpi-meta span {
+	display: inline-block;
+	text-align: center;
+	padding: 10px 0px 5px 0px;
+	margin: 5px 0px 5px 5px;
+	height: 10%;
+	/* width: 13.45%; */
+	white-space: nowrap;
+	overflow: hide;
+	text-transform: uppercase;
+	color: #efefef;
+	border-radius: 5px;
+	font-weight: 800;
+	font-size: 10px;
+}
+
+.kpi-main .kpi-meta span div {
+	font-size: 20px;
+	color: white;
+	font-weight: 600;
+	padding-bottom: 3px;
+	padding-top: 3px;
+}
+
+.kpi-main .kpi-meta span:last-child {
+	border-right: 0
+}
+
+/*Hightlight Report Grid row*/
+.red-row .x-grid-cell {
+	background-color: #ffe2e2;
+	color: #900;
+}
+
+.green-row .x-grid-cell {
+	background-color: #e2ffe2;
+	color: #090;
+}
+
+.yellow-row .x-grid-cell {
+	background-color: #fbf8b2;
+	color: #ff9600;
+}
+
+.red-bold-row .x-grid-cell {
+	background-color: #ffe2e2;
+	color: #900;
+	font-weight: bold;
+}
+
+.green-bold-row .x-grid-cell {
+	background-color: #e2ffe2;
+	color: #090;
+	font-weight: bold;
+}
+
+.yellow-bold-row .x-grid-cell {
+	background-color: #fbf8b2;
+	color: #ff9600;
+	font-weight: bold;
+}
+
+.bold-row .x-grid-cell {
+	font-weight: bold;
+}
+
+.report-dataview-list-cls {
+	background-color: #ffe2e2;
+}
+
+.report-chartview-list-cls .x-grid-cell .x-grid-cell-inner .x-grid-item-selected
+	{
+	background-color: #fff;
+	margin: 5px;
+	box-shadow: 1px 1px 1px 1px #888888;
+	padding: 0px;
+}
+
+.tabPressedCls : {
+	background-color: #fbf8b2;
+}
+
+.appMenuCls .x-grid-group-hd {
+	background-color: #f6f6f6;
+	padding: 10px;
+	font-size: 14px;
+	font-weight: bold;
+	font-style: normal;
+	vertical-align: middle;
+	text-transform: uppercase;
+}
+
+.report-list-view-cls .x-grid-item {
+	background: #ffffff;
+	margin: 5px 8px 8px 8px;
+	box-shadow: 1px 1px 1px 1px #888888;
+}
+
+.searchTextBox .x-form-text-default {
+	background: none;
+	border-width: 0px;
+	border-color: white;
+	color: white;
+	font-size: 16px;
+}
+
+/**MenuBar Design menu items**/
+.menu-bar-item-header-cls {
+	font-size: 16px;
+	font-weight: bold;
+	color: #424242;
+	margin: 5px 5px 5px 0px;
+}
+
+.menu-bar-item-cls {
+	font-size: 16px;
+	font-weight: bold;
+	color: #424242;
+	cursor: default;
+}
+
+.menu-bar-inner-item-cls {
+	font-size: 16px;
+	font-weight: normal;
+	margin: 5px;
+	color: #424242;
+	cursor: pointer;
+}
+
+.menu-bar-inner-item-over-cls {
+	font-size: 16px;
+	font-weight: normal;
+	margin: 0px;
+	color: #424242;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.user-settings-menu-item-cls {
+	font-size: 16px;
+	font-weight: normal;
+	vertical-align: middle;
+	color: #424242;
+	margin-top: 10px;
+	cursor: pointer;
+}
+
+.user-settings-menu-icon-cls {
+	padding: 0px;
+	margin-top: 10px;
+}
+
+.app-menu-tree-folder {
+	background-color: #424242;
+	color: #ffffff;
+	height: 30px;
+	font-size: 16px;
+	font-weight: bold;
+	text-align: center;
+	padding: 5px;
+	border-top: medium;
+	border-top-color: #fff;
+	text-transform: uppercase;
+	font-style: italic;
+}
+
+.app-menu-tree-sub-folder {
+	background-color: #424242;
+	color: #ffffff;
+	height: 30px;
+	font-size: 16px;
+	font-weight: bold;
+	text-align: center;
+	padding: 5px;
+	border-top: medium;
+	border-top-color: #fff;
+}
+
+.app-menu-tree-leaf {
+	background-color: #424242;
+	color: #ffffff;
+	text-align: left;
+	height: 30px;
+	font-size: 16px;
+	padding: 5px;
+}
+
+/**Drawer Design Menu Tree nodes**/
+.menuTreeNode:hover {
+	background-color: #424242;
+	color: #35baf6;
+	font-size: 16px;
+	height: 30px;
+	padding: 5px;
+}
+
+.menuTreeNode {
+	background-color: #424242;
+	color: #ffffff;
+	font-size: 16px;
+	height: 30px;
+	padding: 5px;
+}
+
+.menuTreeNodeIcon .x-tree-icon {
+	display: none !important;
+}
+
+.menuTreeLeafNodeIcon .x-tree-icon {
+	display: none !important;
+}
+
+.menuTreeLeafNode {
+	background-color: #424242;
+	color: #ffffff;
+	font-size: 16px;
+	height: 30px;
+	padding: 5px;
+}
+
+.menuTreeLeafNode:hover {
+	background-color: #424242;
+	color: #35baf6;
+	font-size: 16px;
+	height: 30px;
+	padding: 5px;
+	cursor: pointer;
+}
+.appHeaderCls{
+	box-shadow: 1px 1px 1px 1px #888888;
+	margin:0px 0px 5px 0px;
+	background:#157fcc;
+}
+.appHeaderBtn{
+	border-width: 0px;
+	background: #157fcc;
+}

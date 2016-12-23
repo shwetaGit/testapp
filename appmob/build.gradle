@@ -1,0 +1,434 @@
+apply plugin: 'java'
+apply plugin: 'war'
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+tasks.withType(Test) {
+	maxParallelForks = Runtime.runtime.availableProcessors() / 2
+	forkEvery = 100
+	jvmArgs '-XX:MaxPermSize=500m'
+	minHeapSize '280m'
+	maxHeapSize '380m'
+}
+sourceSets {
+	test {
+		java {
+			srcDir 'src/test/java'
+		}
+	}
+}
+task copyTestResources(type: Copy) {
+	into "$buildDir/resources/lib"
+	from configurations.runtime
+}
+processTestResources.dependsOn copyTestResources
+task compileClasses(type:JavaCompile){
+	source = sourceSets.main.java
+	classpath = sourceSets.main.compileClasspath
+	destinationDir = sourceSets.main.output.classesDir
+}
+task createSharedAppbasicsetupUsermanagementJar(type:Jar){
+	from sourceSets.main.output.classesDir
+	include 'com/app/shared/appbasicsetup/usermanagement/**/*.*'
+	baseName 'app-shared-appbasicsetup-usermanagement'
+	manifest {
+		attributes 	'Copyright': System.properties['_appmob_copyright'],
+		'Build-Date': new Date(),
+		'version' : 1.0
+	}
+	version '1.0'
+}
+task createServiceAppbasicsetupUsermanagementJar(type:Jar){
+	from sourceSets.main.output.classesDir
+	include 'com/app/server/service/appbasicsetup/usermanagement/**/*.*'
+	baseName 'app-service-appbasicsetup-usermanagement'
+	manifest {
+		attributes 	'Copyright': System.properties['_appmob_copyright'],
+		'Build-Date': new Date(),
+		'version' : 1.0
+	}
+	version '1.0'
+}
+task createBizServiceAppbasicsetupUsermanagementJar(type:Jar){
+	from sourceSets.main.output.classesDir
+	include 'com/app/server/businessservice/appbasicsetup/usermanagement/**/*.*'
+	baseName 'app-bizService-appbasicsetup-usermanagement'
+	manifest {
+		attributes 	'Copyright': System.properties['_appmob_copyright'],
+		'Build-Date': new Date(),
+		'version' : 1.0
+	}
+	version '1.0'
+}
+task createRepositoryAppbasicsetupUsermanagementJar(type:Jar){
+	from sourceSets.main.output.classesDir
+	include 'com/app/server/repository/appbasicsetup/usermanagement/**/*.*'
+	baseName 'app-repository-appbasicsetup-usermanagement'
+	manifest {
+		attributes 	'Copyright': System.properties['_appmob_copyright'],
+		'Build-Date': new Date(),
+		'version' : 1.0
+	}
+	version '1.0'
+}
+task createSharedAppbasicsetupUserrolemanagementJar(type:Jar){
+	from sourceSets.main.output.classesDir
+	include 'com/app/shared/appbasicsetup/userrolemanagement/**/*.*'
+	baseName 'app-shared-appbasicsetup-userrolemanagement'
+	manifest {
+		attributes 	'Copyright': System.properties['_appmob_copyright'],
+		'Build-Date': new Date(),
+		'version' : 1.0
+	}
+	version '1.0'
+}
+task createServiceAppbasicsetupUserrolemanagementJar(type:Jar){
+	from sourceSets.main.output.classesDir
+	include 'com/app/server/service/appbasicsetup/userrolemanagement/**/*.*'
+	baseName 'app-service-appbasicsetup-userrolemanagement'
+	manifest {
+		attributes 	'Copyright': System.properties['_appmob_copyright'],
+		'Build-Date': new Date(),
+		'version' : 1.0
+	}
+	version '1.0'
+}
+task createBizServiceAppbasicsetupUserrolemanagementJar(type:Jar){
+	from sourceSets.main.output.classesDir
+	include 'com/app/server/businessservice/appbasicsetup/userrolemanagement/**/*.*'
+	baseName 'app-bizService-appbasicsetup-userrolemanagement'
+	manifest {
+		attributes 	'Copyright': System.properties['_appmob_copyright'],
+		'Build-Date': new Date(),
+		'version' : 1.0
+	}
+	version '1.0'
+}
+task createRepositoryAppbasicsetupUserrolemanagementJar(type:Jar){
+	from sourceSets.main.output.classesDir
+	include 'com/app/server/repository/appbasicsetup/userrolemanagement/**/*.*'
+	baseName 'app-repository-appbasicsetup-userrolemanagement'
+	manifest {
+		attributes 	'Copyright': System.properties['_appmob_copyright'],
+		'Build-Date': new Date(),
+		'version' : 1.0
+	}
+	version '1.0'
+}
+task createSharedAppbasicsetupAaaJar(type:Jar){
+	from sourceSets.main.output.classesDir
+	include 'com/app/shared/appbasicsetup/aaa/**/*.*'
+	baseName 'app-shared-appbasicsetup-aaa'
+	manifest {
+		attributes 	'Copyright': System.properties['_appmob_copyright'],
+		'Build-Date': new Date(),
+		'version' : 1.0
+	}
+	version '1.0'
+}
+task createServiceAppbasicsetupAaaJar(type:Jar){
+	from sourceSets.main.output.classesDir
+	include 'com/app/server/service/appbasicsetup/aaa/**/*.*'
+	baseName 'app-service-appbasicsetup-aaa'
+	manifest {
+		attributes 	'Copyright': System.properties['_appmob_copyright'],
+		'Build-Date': new Date(),
+		'version' : 1.0
+	}
+	version '1.0'
+}
+task createBizServiceAppbasicsetupAaaJar(type:Jar){
+	from sourceSets.main.output.classesDir
+	include 'com/app/server/businessservice/appbasicsetup/aaa/**/*.*'
+	baseName 'app-bizService-appbasicsetup-aaa'
+	manifest {
+		attributes 	'Copyright': System.properties['_appmob_copyright'],
+		'Build-Date': new Date(),
+		'version' : 1.0
+	}
+	version '1.0'
+}
+task createRepositoryAppbasicsetupAaaJar(type:Jar){
+	from sourceSets.main.output.classesDir
+	include 'com/app/server/repository/appbasicsetup/aaa/**/*.*'
+	baseName 'app-repository-appbasicsetup-aaa'
+	manifest {
+		attributes 	'Copyright': System.properties['_appmob_copyright'],
+		'Build-Date': new Date(),
+		'version' : 1.0
+	}
+	version '1.0'
+}
+task createSharedAppinsightHealthJar(type:Jar){
+	from sourceSets.main.output.classesDir
+	include 'com/app/shared/appinsight/health/**/*.*'
+	baseName 'app-shared-appinsight-health'
+	manifest {
+		attributes 	'Copyright': System.properties['_appmob_copyright'],
+		'Build-Date': new Date(),
+		'version' : 1.0
+	}
+	version '1.0'
+}
+task createServiceAppinsightHealthJar(type:Jar){
+	from sourceSets.main.output.classesDir
+	include 'com/app/server/service/appinsight/health/**/*.*'
+	baseName 'app-service-appinsight-health'
+	manifest {
+		attributes 	'Copyright': System.properties['_appmob_copyright'],
+		'Build-Date': new Date(),
+		'version' : 1.0
+	}
+	version '1.0'
+}
+task createBizServiceAppinsightHealthJar(type:Jar){
+	from sourceSets.main.output.classesDir
+	include 'com/app/server/businessservice/appinsight/health/**/*.*'
+	baseName 'app-bizService-appinsight-health'
+	manifest {
+		attributes 	'Copyright': System.properties['_appmob_copyright'],
+		'Build-Date': new Date(),
+		'version' : 1.0
+	}
+	version '1.0'
+}
+task createRepositoryAppinsightHealthJar(type:Jar){
+	from sourceSets.main.output.classesDir
+	include 'com/app/server/repository/appinsight/health/**/*.*'
+	baseName 'app-repository-appinsight-health'
+	manifest {
+		attributes 	'Copyright': System.properties['_appmob_copyright'],
+		'Build-Date': new Date(),
+		'version' : 1.0
+	}
+	version '1.0'
+}
+task createSharedAppinsightAlarmsJar(type:Jar){
+	from sourceSets.main.output.classesDir
+	include 'com/app/shared/appinsight/alarms/**/*.*'
+	baseName 'app-shared-appinsight-alarms'
+	manifest {
+		attributes 	'Copyright': System.properties['_appmob_copyright'],
+		'Build-Date': new Date(),
+		'version' : 1.0
+	}
+	version '1.0'
+}
+task createServiceAppinsightAlarmsJar(type:Jar){
+	from sourceSets.main.output.classesDir
+	include 'com/app/server/service/appinsight/alarms/**/*.*'
+	baseName 'app-service-appinsight-alarms'
+	manifest {
+		attributes 	'Copyright': System.properties['_appmob_copyright'],
+		'Build-Date': new Date(),
+		'version' : 1.0
+	}
+	version '1.0'
+}
+task createBizServiceAppinsightAlarmsJar(type:Jar){
+	from sourceSets.main.output.classesDir
+	include 'com/app/server/businessservice/appinsight/alarms/**/*.*'
+	baseName 'app-bizService-appinsight-alarms'
+	manifest {
+		attributes 	'Copyright': System.properties['_appmob_copyright'],
+		'Build-Date': new Date(),
+		'version' : 1.0
+	}
+	version '1.0'
+}
+task createRepositoryAppinsightAlarmsJar(type:Jar){
+	from sourceSets.main.output.classesDir
+	include 'com/app/server/repository/appinsight/alarms/**/*.*'
+	baseName 'app-repository-appinsight-alarms'
+	manifest {
+		attributes 	'Copyright': System.properties['_appmob_copyright'],
+		'Build-Date': new Date(),
+		'version' : 1.0
+	}
+	version '1.0'
+}
+task createSharedOrganizationContactmanagementJar(type:Jar){
+	from sourceSets.main.output.classesDir
+	include 'com/app/shared/organization/contactmanagement/**/*.*'
+	baseName 'app-shared-organization-contactmanagement'
+	manifest {
+		attributes 	'Copyright': System.properties['_appmob_copyright'],
+		'Build-Date': new Date(),
+		'version' : 1.0
+	}
+	version '1.0'
+}
+task createServiceOrganizationContactmanagementJar(type:Jar){
+	from sourceSets.main.output.classesDir
+	include 'com/app/server/service/organization/contactmanagement/**/*.*'
+	baseName 'app-service-organization-contactmanagement'
+	manifest {
+		attributes 	'Copyright': System.properties['_appmob_copyright'],
+		'Build-Date': new Date(),
+		'version' : 1.0
+	}
+	version '1.0'
+}
+task createBizServiceOrganizationContactmanagementJar(type:Jar){
+	from sourceSets.main.output.classesDir
+	include 'com/app/server/businessservice/organization/contactmanagement/**/*.*'
+	baseName 'app-bizService-organization-contactmanagement'
+	manifest {
+		attributes 	'Copyright': System.properties['_appmob_copyright'],
+		'Build-Date': new Date(),
+		'version' : 1.0
+	}
+	version '1.0'
+}
+task createRepositoryOrganizationContactmanagementJar(type:Jar){
+	from sourceSets.main.output.classesDir
+	include 'com/app/server/repository/organization/contactmanagement/**/*.*'
+	baseName 'app-repository-organization-contactmanagement'
+	manifest {
+		attributes 	'Copyright': System.properties['_appmob_copyright'],
+		'Build-Date': new Date(),
+		'version' : 1.0
+	}
+	version '1.0'
+}
+task createSharedOrganizationLocationmanagementJar(type:Jar){
+	from sourceSets.main.output.classesDir
+	include 'com/app/shared/organization/locationmanagement/**/*.*'
+	baseName 'app-shared-organization-locationmanagement'
+	manifest {
+		attributes 	'Copyright': System.properties['_appmob_copyright'],
+		'Build-Date': new Date(),
+		'version' : 1.0
+	}
+	version '1.0'
+}
+task createServiceOrganizationLocationmanagementJar(type:Jar){
+	from sourceSets.main.output.classesDir
+	include 'com/app/server/service/organization/locationmanagement/**/*.*'
+	baseName 'app-service-organization-locationmanagement'
+	manifest {
+		attributes 	'Copyright': System.properties['_appmob_copyright'],
+		'Build-Date': new Date(),
+		'version' : 1.0
+	}
+	version '1.0'
+}
+task createBizServiceOrganizationLocationmanagementJar(type:Jar){
+	from sourceSets.main.output.classesDir
+	include 'com/app/server/businessservice/organization/locationmanagement/**/*.*'
+	baseName 'app-bizService-organization-locationmanagement'
+	manifest {
+		attributes 	'Copyright': System.properties['_appmob_copyright'],
+		'Build-Date': new Date(),
+		'version' : 1.0
+	}
+	version '1.0'
+}
+task createRepositoryOrganizationLocationmanagementJar(type:Jar){
+	from sourceSets.main.output.classesDir
+	include 'com/app/server/repository/organization/locationmanagement/**/*.*'
+	baseName 'app-repository-organization-locationmanagement'
+	manifest {
+		attributes 	'Copyright': System.properties['_appmob_copyright'],
+		'Build-Date': new Date(),
+		'version' : 1.0
+	}
+	version '1.0'
+}
+task creatCustomJars(dependsOn:[compileClasses, createSharedAppbasicsetupUsermanagementJar,createServiceAppbasicsetupUsermanagementJar,createBizServiceAppbasicsetupUsermanagementJar,createRepositoryAppbasicsetupUsermanagementJar,createSharedAppbasicsetupUserrolemanagementJar,createServiceAppbasicsetupUserrolemanagementJar,createBizServiceAppbasicsetupUserrolemanagementJar,createRepositoryAppbasicsetupUserrolemanagementJar,createSharedAppbasicsetupAaaJar,createServiceAppbasicsetupAaaJar,createBizServiceAppbasicsetupAaaJar,createRepositoryAppbasicsetupAaaJar,createSharedAppinsightHealthJar,createServiceAppinsightHealthJar,createBizServiceAppinsightHealthJar,createRepositoryAppinsightHealthJar,createSharedAppinsightAlarmsJar,createServiceAppinsightAlarmsJar,createBizServiceAppinsightAlarmsJar,createRepositoryAppinsightAlarmsJar,createSharedOrganizationContactmanagementJar,createServiceOrganizationContactmanagementJar,createBizServiceOrganizationContactmanagementJar,createRepositoryOrganizationContactmanagementJar,createSharedOrganizationLocationmanagementJar,createServiceOrganizationLocationmanagementJar,createBizServiceOrganizationLocationmanagementJar,createRepositoryOrganizationLocationmanagementJar])
+war{
+	dependsOn creatCustomJars
+	classpath = configurations.runtime
+  
+	/* Removing backup files of ApplicationAlarms.xml, ApplicationFramework.xml and LoggerConfigurtion.xml from war */ 
+	exclude ( 'WEB-INF/conf/ApplicationAlarms.*.xml','WEB-INF/conf/LoggerConfiguration.*.xml','WEB-INF/conf/ApplicationFrameworkAlarms.*.xml')
+	webInf {
+		into('classes') {
+			from (sourceSets.main.output.classesDir){
+				include ('com/app/server/service/appbasicsetup/','com/app/server/service/appbasicsetup/','com/app/server/service/appbasicsetup/','com/app/server/service/appinsight/','com/app/server/service/appinsight/','com/app/server/service/organization/','com/app/server/service/organization/','com/app/server/repository/appbasicsetup/','com/app/server/repository/appbasicsetup/','com/app/server/repository/appbasicsetup/','com/app/server/repository/appinsight/','com/app/server/repository/appinsight/','com/app/server/repository/organization/','com/app/server/repository/organization/','com/app/server/businessservice/appbasicsetup/','com/app/server/businessservice/appbasicsetup/','com/app/server/businessservice/appbasicsetup/','com/app/server/businessservice/appinsight/','com/app/server/businessservice/appinsight/','com/app/server/businessservice/organization/','com/app/server/businessservice/organization/','com/app/shared/','com/app/config/','com/app/server/bean','com/app/server/service/aspect/','com/app/server/businessservice/aspect/','com/app/server/repository/aspect/','com/app/server/repository/core/','com/app/server/repository/datavisualizer/','com/app/server/service/sessionmgt/','com/app/server/service/datavisualizer/','com/app/util/','com/app/customexceptions/','com/app/bean/',)
+              exclude ('com/app/shared/appbasicsetup/usermanagement/','com/app/shared/appbasicsetup/userrolemanagement/','com/app/shared/appbasicsetup/aaa/','com/app/shared/appinsight/health/','com/app/shared/appinsight/alarms/','com/app/shared/organization/contactmanagement/','com/app/shared/organization/locationmanagement/','com/app/server/service/appbasicsetup/usermanagement/','com/app/server/service/appbasicsetup/userrolemanagement/','com/app/server/service/appbasicsetup/aaa/','com/app/server/service/appinsight/health/','com/app/server/service/appinsight/alarms/','com/app/server/service/organization/contactmanagement/','com/app/server/service/organization/locationmanagement/','com/app/server/businessservice/appbasicsetup/usermanagement/','com/app/server/businessservice/appbasicsetup/userrolemanagement/','com/app/server/businessservice/appbasicsetup/aaa/','com/app/server/businessservice/appinsight/health/','com/app/server/businessservice/appinsight/alarms/','com/app/server/businessservice/organization/contactmanagement/','com/app/server/businessservice/organization/locationmanagement/','com/app/server/repository/appbasicsetup/usermanagement/','com/app/server/repository/appbasicsetup/userrolemanagement/','com/app/server/repository/appbasicsetup/aaa/','com/app/server/repository/appinsight/health/','com/app/server/repository/appinsight/alarms/','com/app/server/repository/organization/contactmanagement/','com/app/server/repository/organization/locationmanagement/',)			}
+			from "$project.buildDir/resources/main/"
+		}
+	}
+}
+dependencies {
+	runtime fileTree(dir: "$project.buildDir/libs", include: "*.jar")
+	compile fileTree(dir: myLibPath, include: [
+		'spartan/spartan-logger-1.0.jar',
+		'spartan/spartan-pluggable-1.0.jar',
+		'athena/athena-pluggable-1.0.jar',
+		'athena/athena-data-engine-1.0.jar',
+		'spartan/spartan-auth-1.0.jar',
+		'mysql/mysql-connector-java-5.1.31.jar',
+		'log4j/log4j-1.2.17.jar',
+		'apache-commons/commons-lang3-3.1.jar',
+		'aspectj/aopalliance-1.0.jar',
+		'slf4j/slf4j-api-1.7.6.jar',
+		'json/json-taglib-0.4.1.jar',
+		'aspectj/aspectjweaver-1.7.4.jar',
+		'aspectj/aspectjrt-1.7.4.jar',
+		'spring-framework/spring-context-4.0.6.RELEASE.jar',
+		'spring-framework/spring-aop-3.2.6.RELEASE.jar',
+		'spring-framework/spring-aspects-3.2.6.RELEASE.jar',
+		'spring-framework/spring-context-support-3.2.6.RELEASE.jar',
+		'spring-framework/spring-orm-4.1.1.RELEASE.jar',
+		'spring-framework/spring-core-4.0.6.RELEASE.jar',
+		'spring-framework-security/spring-ldap-core-1.3.2.RELEASE.jar',
+		'spring-framework-security/spring-security-core-3.2.5.RELEASE.jar',
+		'spring-framework-security/spring-security-ldap-3.2.5.RELEASE.jar',
+		'spring-framework-security/spring-security-config-3.2.5.RELEASE.jar',
+		'spring-framework-security/spring-security-web-3.2.5.RELEASE.jar',
+		'commons/commons-beanutils-1.9.2.jar',
+		'commons/commons-validator-1.3.1.jar',
+		'commons/commons-io-2.1.jar',
+		'commons/commons-lang-2.4.jar',
+		'commons/commons-dbcp-1.4.jar',
+		'commons/commons-pool-1.5.4.jar',
+		'commons/commons-fileupload-1.2.jar',
+		'commons/commons-codec-1.9.jar',
+		'eclipse/eclipselink-2.5.1.jar',
+		'eclipse/javax.persistence-2.1.0.jar',
+		'spring-framework/spring-web-4.0.6.RELEASE.jar',
+		'spring-framework/spring-webmvc-4.0.6.RELEASE.jar',
+		'spring-framework/spring-web-4.0.6.RELEASE.jar',
+		'spring-framework/spring-jdbc-4.1.1.RELEASE.jar',
+		'spring-framework/spring-expression-4.1.1.RELEASE.jar',
+		'spring-framework/spring-beans-4.0.6.RELEASE.jar',
+		'spring-framework/spring-tx-4.0.6.RELEASE.jar',
+		'apache-bval/bval-jsr303-0.5.jar',
+		'apache-bval/bval-core-0.5.jar',
+		'codehaus/jackson-mapper-asl-1.9.13.jar',
+		'codehaus/jackson-core-asl-1.9.13.jar',
+		'fasterxml/jackson-annotations-2.2.3.jar',
+		'fasterxml/jackson-core-2.2.3.jar',
+		'fasterxml/jackson-databind-2.2.3.jar',
+		'javax/validation-api-1.0.0.GA.jar',
+		'javax/javax.servlet-api-3.1.0.jar',
+		'javax/mail-1.4.7.jar',
+		'apache-httpcomponents/httpmime-4.4.jar',
+		'apache-httpcomponents/httpclient-4.3.1.jar',
+		'apache-httpcomponents/httpcore-4.3.jar',
+		'camel/commons-logging-1.1.1.jar',
+		'poi/poi-3.10-beta2.jar',
+		'poi/poi-ooxml-schemas-3.9.jar',
+		'poi/poi-ooxml-3.9.jar',
+		'apache-bval/xmlbeans-2.3.0.jar',
+		'commons/dom4j-1.1.jar',
+		'apache-velocity/velocity-1.7.jar',
+		'commons/commons-collections-3.2.1.jar',
+		'jwt/jjwt-0.6.0.jar',
+		'jwt/java-jwt-2.1.0.jar',
+		'com-itextpdf/itextpdf-5.5.9.jar',
+		'com-itextpdf-tool/xmlworker-5.5.9.jar',
+		'spartan/spartan-healthmeter-1.0.jar',
+		'spring-framework-boot/spring-boot-1.1.7.RELEASE.jar',
+		'spring-framework-boot/spring-boot-actuator-1.1.7.RELEASE.jar',
+		'spring-framework-boot/spring-boot-starter-actuator-1.1.9.RELEASE.jar',
+		'spring-framework-boot/spring-boot-autoconfigure-1.1.7.RELEASE.jar',
+		'spring-framework-boot/spring-boot-starter-1.1.7.RELEASE.jar',
+	])
+	testCompile fileTree(dir: myLibPath, include: [
+		'junit/junit-4.11.jar',
+		'hamcrest/hamcrest-core-1.3.jar',
+		'spring-framework-test/spring-test-4.0.6.RELEASE.jar'
+	])
+}
